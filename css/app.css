@@ -1,0 +1,46 @@
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+.slotwrapper {
+    overflow: hidden;
+    display: inline-block;
+    width: 64%;
+    height: 221%;
+    position: absolute;
+    left: 18%;
+    top: 86%;
+}
+.btn-success{
+    z-index: 2;
+    position: absolute;
+}
+.slotwrapper ul {
+
+    list-style: none;
+    position: relative;
+    float: left;
+    
+}
+.slotwrapper ul {
+
+}
+.slotwrapper ul li img {
+    vertical-align: top;
+}
+
+
+/* Example 10 override slotwrapper */
+#example6 {
+    
+}
+#example6 ul {
+    width: 20%;
+    padding-left: 0px;
+}
