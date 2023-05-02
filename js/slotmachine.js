@@ -1,16 +1,41 @@
 var startSeqs = {};
 var startNum = 0;
-var first;
-var second;
-var third;
 
-var first2;
-var second2;
-var third2;
+var slot1Pos1;
+var slot1Pos2;
+var slot1Pos3;
 
-var first3;
-var second3;
-var third3;
+var slot2Pos1;
+var slot2Pos2;
+var slot2Pos3;
+
+var slot3Pos1;
+var slot3Pos2;
+var slot3Pos3;
+
+var slot4Pos1;
+var slot4Pos2;
+var slot4Pos3;
+
+var slot5Pos1;
+var slot5Pos2;
+var slot5Pos3;
+
+var topSlot1;
+var topSlot2;
+var topSlot3;
+var topSlot4;
+var topSlot5;
+
+
+var basePx = Number(143);
+
+var maxSlot1 = Number(document.getElementsByTagName("ul")[0].getElementsByTagName("li").length);
+var maxSlot2 = Number(document.getElementsByTagName("ul")[1].getElementsByTagName("li").length);
+var maxSlot3 = Number(document.getElementsByTagName("ul")[2].getElementsByTagName("li").length);
+var maxSlot4 = Number(document.getElementsByTagName("ul")[3].getElementsByTagName("li").length);
+var maxSlot5 = Number(document.getElementsByTagName("ul")[4].getElementsByTagName("li").length);
+
 /*
 hay que guardar el orden actual para que al lanzarse se lance de la misma forma.
 */
@@ -79,10 +104,10 @@ var slotMachine = function (el, options, track) {
     slot.defaultOptions = {
         easing: 'swing',        // String: easing type for final spin
         time: 2000,             // Number: total time of spin animation
-        loops: 6,               // Number: times it will spin during the animation
+        loops: 8,               // Number: times it will spin during the animation
         manualStop: false,      // Boolean: spin until user manually click to stop
         stopSeq: 'random',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
-        endNum: 0,              // Number: animation end at which number/ sequence of list
+        endNum: 0,              // Number: animation end at which Number/ sequence of list
         onEnd : $.noop,         // Function: run on each element spin end, it is passed endNum
         onFinish: $.noop        // Function: run on all element spin end, it is passed endNum
     };
@@ -123,6 +148,7 @@ var slotMachine = function (el, options, track) {
             .animate({'top': '0px'}, slot.spinSpeed, 'linear', function () {
                 slot.lowerSpeed();
             });
+            //anadir 
     };
 
     slot.lowerSpeed = function () {
@@ -166,26 +192,77 @@ var slotMachine = function (el, options, track) {
                     $.each(startSeqs['mainSeq' + track.mainSeq], function(index, subSeqs) {
                         if (typeof subSeqs == 'object') {
                             totalNum += subSeqs['endNum'].toString();
-                            console.log('totalnum '+ totalNum);
-                            console.log('valor ' + subSeqs['endNum'].toString());
-                            if(totalNum < 10){
-                                first = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[subSeqs['endNum']-1].id;
-                                first2 = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[subSeqs['endNum']].id;
-                                first3 = document.getElementsByTagName("ul")[0].getElementsByTagName("li")[subSeqs['endNum']+1].id;
-                            }else if(totalNum < 100){
-                                second = document.getElementsByTagName("ul")[1].getElementsByTagName("li")[subSeqs['endNum']-1].id;
-                                second2 = document.getElementsByTagName("ul")[1].getElementsByTagName("li")[subSeqs['endNum']].id;
-                                second3 = document.getElementsByTagName("ul")[1].getElementsByTagName("li")[subSeqs['endNum']+1].id;
-                            }else if(totalNum < 1000){
-                                third = document.getElementsByTagName("ul")[2].getElementsByTagName("li")[subSeqs['endNum']-1].id;
-                                third2 = document.getElementsByTagName("ul")[2].getElementsByTagName("li")[subSeqs['endNum']].id;
-                                third3 = document.getElementsByTagName("ul")[2].getElementsByTagName("li")[subSeqs['endNum']+1].id;
-                            }
+                            //BASE PARA PONER A LOS DEMÁS!
+                            //document.getElementById("base").clientWidth
+                            //document.getElementById("base").clientHeight
+                            
                         }
-                    });
+                        }
+
+                    );
                     if ($.isFunction(slot.options.onFinish)) {
                         slot.options.onFinish(totalNum);
                     }
+                    slot1Pos1 = Number(document.getElementsByTagName("ul")[0].getElementsByTagName("li")[$("ul#first").css("top").slice(1,-2)/basePx].id);
+
+                            if(slot1Pos1 == maxSlot1){
+                                slot1Pos2 = Number(1);
+                                slot1Pos3 = Number(2);
+                            }else if(Number(slot1Pos1 + 1) == maxSlot1){
+                                slot1Pos2 = Number(slot1Pos1 + 1);
+                                slot1Pos3 = Number(1);
+                            }else{
+                                slot1Pos2 = Number(slot1Pos1 + 1);
+                                slot1Pos3 = Number(slot1Pos1 + 2);
+                            }
+                            
+                            slot2Pos1 = Number(document.getElementsByTagName("ul")[1].getElementsByTagName("li")[$("ul#second").css("top").slice(1,-2)/basePx].id);
+                            if(slot2Pos1 == maxSlot2){
+                                slot2Pos2 = Number(1);
+                                slot2Pos3 = Number(2);
+                            }else if(Number(slot2Pos1 + 1) == maxSlot2){
+                                slot2Pos2 = Number(slot2Pos1 + 1);
+                                slot2Pos3 = Number(1);
+                            }else{
+                                slot2Pos2 = Number(slot2Pos1 + 1);
+                                slot2Pos3 = Number(slot2Pos1 + 2);
+                            }
+                            slot3Pos1 = Number(document.getElementsByTagName("ul")[2].getElementsByTagName("li")[$("ul#third").css("top").slice(1,-2)/basePx].id);
+                            if(slot3Pos1 == maxSlot3){
+                                slot3Pos2 = Number(1);
+                                slot3Pos3 = Number(2);
+                            }else if(Number(slot3Pos1 + 1) == maxSlot3){
+                                slot3Pos2 = Number(slot3Pos1 + 1);
+                                slot3Pos3 = Number(1);
+                            }else{
+                                slot3Pos2 = Number(slot3Pos1 + 1);
+                                slot3Pos3 = Number(slot3Pos1 + 2);
+                            }
+                            slot4Pos1 = Number(document.getElementsByTagName("ul")[3].getElementsByTagName("li")[$("ul#forth").css("top").slice(1,-2)/basePx].id);
+                            if(slot4Pos1 == maxSlot4){
+                                slot4Pos2 = Number(1);
+                                slot4Pos3 = Number(2);
+                            }else if(Number(slot4Pos1 + 1) == maxSlot4){
+                                slot4Pos2 = Number(slot4Pos1 + 1);
+                                slot4Pos3 = Number(1);
+                            }else{
+                                slot4Pos2 = Number(slot4Pos1 + 1);
+                                slot4Pos3 = Number(slot4Pos1 + 2);
+                            }
+                            slot5Pos1 = Number(document.getElementsByTagName("ul")[4].getElementsByTagName("li")[$("ul#fifth").css("top").slice(1,-2)/basePx].id);
+                            if(slot5Pos1 == maxSlot5){
+                                slot5Pos2 = Number(1);
+                                slot5Pos3 = Number(2);
+                            }else if(Number(slot5Pos1 + 1) == maxSlot5){
+                                slot5Pos2 = Number(slot5Pos1 + 1);
+                                slot5Pos3 = Number(1);
+                            }else{
+                                slot5Pos2 = Number(slot5Pos1 + 1);
+                                slot5Pos3 = Number(slot5Pos1 + 2);
+                            }
+                            console.log('1 - '+ slot1Pos1 + ' ' + slot2Pos1 + ' '+ slot3Pos1 + ' ' + slot4Pos1 + ' '+ slot5Pos1);
+                            console.log('2 - '+ slot1Pos2 + ' ' + slot2Pos2 + ' '+ slot3Pos2 + ' ' + slot4Pos2 + ' '+ slot5Pos2);
+                            console.log('3 - '+ slot1Pos3 + ' ' + slot2Pos3 + ' '+ slot3Pos3 + ' ' + slot4Pos3 + ' '+ slot5Pos3);
                 }
                 
             });
