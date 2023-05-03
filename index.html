@@ -22,7 +22,6 @@
                 <li id="5"><img class="slot" src="img/slot/melocoton.png" alt=""></li>
                 <li id="6"><img class="slot" src="img/slot/pina.png" alt=""></li>
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
-                <li id="8"><img class="slot" src="img/slot/setas.png" alt=""></li>
             </ul>
             <ul id="second">
                 <li id="1"><img id="base" src="img/slot/banana.png" alt=""></li>
@@ -32,7 +31,6 @@
                 <li id="5"><img class="slot" src="img/slot/melocoton.png" alt=""></li>
                 <li id="6"><img class="slot" src="img/slot/pina.png" alt=""></li>
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
-                <li id="8"><img class="slot" src="img/slot/setas.png" alt=""></li>
             </ul>
             <ul id="third">
                 <li id="1"><img id="base" src="img/slot/banana.png" alt=""></li>
@@ -42,7 +40,6 @@
                 <li id="5"><img class="slot" src="img/slot/melocoton.png" alt=""></li>
                 <li id="6"><img class="slot" src="img/slot/pina.png" alt=""></li>
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
-                <li id="8"><img class="slot" src="img/slot/setas.png" alt=""></li>
             </ul>
             <ul id="forth">
                 <li id="1"><img id="base" src="img/slot/banana.png" alt=""></li>
@@ -52,7 +49,6 @@
                 <li id="5"><img class="slot" src="img/slot/melocoton.png" alt=""></li>
                 <li id="6"><img class="slot" src="img/slot/pina.png" alt=""></li>
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
-                <li id="8"><img class="slot" src="img/slot/setas.png" alt=""></li>
             </ul>
             <ul id="fifth">
                 <li id="1"><img id="base" src="img/slot/banana.png" alt=""></li>
@@ -62,7 +58,6 @@
                 <li id="5"><img class="slot" src="img/slot/melocoton.png" alt=""></li>
                 <li id="6"><img class="slot" src="img/slot/pina.png" alt=""></li>
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
-                <li id="8"><img class="slot" src="img/slot/setas.png" alt=""></li>
             </ul>
         </div>
     </div>
@@ -88,6 +83,26 @@
         var paragraph2 = document.getElementById("money");
        // paragraph2.textContent = 'Money ' + money;*/
         $('#btn-example6').click(function() {
+            var ul = document.querySelector('ul#first');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+        var ul = document.querySelector('ul#second');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+        ul = document.querySelector('ul#third');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+        ul = document.querySelector('ul#forth');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+        ul = document.querySelector('ul#fifth');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
             credits = credits - 3;
            // paragraph.textContent = 'Credit ' + credits;
             $('#example6 ul').playSpin({

@@ -1,45 +1,27 @@
 var startSeqs = {};
 var startNum = 0;
 
-var slot1Pos1;
-var slot1Pos2;
-var slot1Pos3;
-
-var slot2Pos1;
-var slot2Pos2;
-var slot2Pos3;
-
-var slot3Pos1;
-var slot3Pos2;
-var slot3Pos3;
-
-var slot4Pos1;
-var slot4Pos2;
-var slot4Pos3;
-
-var slot5Pos1;
-var slot5Pos2;
-var slot5Pos3;
-
-var topSlot1;
-var topSlot2;
-var topSlot3;
-var topSlot4;
-var topSlot5;
-
-
-var basePx = Number(143);
-
-var maxSlot1 = Number(document.getElementsByTagName("ul")[0].getElementsByTagName("li").length);
-var maxSlot2 = Number(document.getElementsByTagName("ul")[1].getElementsByTagName("li").length);
-var maxSlot3 = Number(document.getElementsByTagName("ul")[2].getElementsByTagName("li").length);
-var maxSlot4 = Number(document.getElementsByTagName("ul")[3].getElementsByTagName("li").length);
-var maxSlot5 = Number(document.getElementsByTagName("ul")[4].getElementsByTagName("li").length);
+var slot1Pos1, slot1Pos2, slot1Pos3;
+var slot2Pos1, slot2Pos2, slot2Pos3;
+var slot3Pos1, slot3Pos2, slot3Pos3;
+var slot4Pos1, slot4Pos2, slot4Pos3;
+var slot5Pos1, slot5Pos2, slot5Pos3;
 
 /*
-hay que guardar el orden actual para que al lanzarse se lance de la misma forma.
+YA he hardcodeado la parada
+ahora queda entender como van estas máquinas, lo más básico
+para modificar su forma de actuar
+css para marcar:
+filter: brightness(2);
+
+
+jackpot es el mayor premio
+
+scatter no se aplica a esta maquina, no hay imagen.
+wild es comodin para todo excepto scatter. Acumular comodines desbloquea algo especial
+https://www.todoslots.es/blog/slots/diferencia-wild-scatter#:~:text=%C2%BFQu%C3%A9%20es%20el%20s%C3%ADmbolo%20Wild,funciones%20especiales%20como%20los%20bonos.
+
 */
-//segun las probabilidades se repetirán más, asi es mas probable
 // jQuery FN
 $.fn.playSpin = function (options) {
     if (this.length) {
@@ -103,7 +85,7 @@ var slotMachine = function (el, options, track) {
 
     slot.defaultOptions = {
         easing: '',        // String: easing type for final spin
-        time: 350,             // Number: total time of spin animation
+        time: 400,             // Number: total time of spin animation
         loops: 3,               // Number: times it will spin during the animation
         manualStop: false,      // Boolean: spin until user manually click to stop
         stopSeq: 'leftToRight',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
@@ -127,10 +109,7 @@ var slotMachine = function (el, options, track) {
         slot.liCount = slot.$el.children().length-3;
         slot.listHeight = slot.liHeight * slot.liCount;
         slot.spinSpeed = slot.options.time / slot.options.loops;
-
-        $li.clone().appendTo(slot.$el); // Clone to last row for smooth animation
-
-        // Configure stopSeq
+        $li.clone().appendTo(slot.$el);
         if (slot.options.stopSeq == 'leftToRight') {
             if (track.subSeq != 1) {
                 slot.options.manualStop = true;
@@ -148,12 +127,10 @@ var slotMachine = function (el, options, track) {
             .animate({'top': '0px'}, slot.spinSpeed, 'linear', function () {
                 slot.lowerSpeed();
             });
-            //anadir 
     };
 
     slot.lowerSpeed = function () {
         slot.loopCount++;
-
         if (slot.loopCount < slot.options.loops ||
             (slot.options.manualStop && startSeqs['mainSeq' + track.mainSeq]['subSeq' + track.subSeq]['spinning'])) {
             slot.startSpin();
@@ -164,28 +141,22 @@ var slotMachine = function (el, options, track) {
 
     slot.endSpin = function () {
         if (slot.options.endNum == 0) {
-            slot.options.endNum = slot.randomRange(1, slot.liCount);
+            slot.options.endNum = 4;
         }
-
-        // Error handling if endNum is out of range
         if (slot.options.endNum < 0 || slot.options.endNum > slot.liCount) {
             slot.options.endNum = 0;
         }
 
         var finalPos = -((slot.liHeight * slot.options.endNum) - slot.liHeight);
         var finalSpeed = ((slot.spinSpeed * 1.5) * (slot.liCount)) / slot.options.endNum;
-
         slot.$el
             .css('top', -slot.listHeight)
             .animate({'top': finalPos}, finalSpeed, slot.options.easing, function () {
-                slot.$el.find('li').last().remove(); // Remove the cloned row
-
+                slot.$el.find('li').last().remove();
                 slot.endAnimation(slot.options.endNum);
                 if ($.isFunction(slot.options.onEnd)) {
                     slot.options.onEnd(slot.options.endNum);
                 }
-
-                // onFinish is every element is finished animation
                 if (startSeqs['mainSeq' + track.mainSeq]['totalSpinning'] == 0) {
                     var totalNum = '';
                     $.each(startSeqs['mainSeq' + track.mainSeq], function(index, subSeqs) {
@@ -198,6 +169,62 @@ var slotMachine = function (el, options, track) {
                         slot.options.onFinish(totalNum);
                     }
                   }
+                    slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3].id;
+                    slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3].id;
+                    slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3].id;
+                    slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3].id;
+                    slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3].id;
+                    
+                    slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4].id;
+                    slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4].id;
+                    slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4].id;
+                    slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4].id;
+                    slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4].id;
+
+                    slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5].id;
+                    slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5].id;
+                    slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5].id;
+                    slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5].id;
+                    slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5].id;
+
+                    if(slot1Pos1 == slot2Pos2 && slot2Pos2 == slot3Pos3 && slot3Pos3 == slot4Pos2 && slot4Pos2 == slot5Pos1){
+                        console.log('premio V');
+                    }
+                    
+                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('premio primera fila');
+                    }
+                    if(slot1Pos2 == slot2Pos2 && slot2Pos2 == slot3Pos2 && slot3Pos2 == slot4Pos2 && slot4Pos2 == slot5Pos2){
+                        console.log('premio segunda fila');
+                    }
+
+                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos3){
+                        console.log('premio 3 fila');
+                    }
+                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('v pequeña');
+                    }
+
+                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('olla rara');
+                    }
+
+                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos2){
+                        console.log('zigzag');
+                    }
+
+                    if(slot1Pos2 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos2){
+                        console.log('olla abajo');
+                    }
+
+                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos2 && slot3Pos2 == slot4Pos3 && slot4Pos3 == slot5Pos3){
+                        console.log('zigzag inverso');
+                    }
+
+                    if(slot1Pos3 == slot2Pos2 && slot2Pos2 == slot3Pos1 && slot3Pos1 == slot4Pos2 && slot4Pos2 == slot5Pos3){
+                        console.log('v inversa');
+                    }
+                    
             });
     }
     slot.endAnimation = function(endNum) {
@@ -213,6 +240,5 @@ var slotMachine = function (el, options, track) {
     slot.randomRange = function (low, high) {
         return Math.floor(Math.random() * (1 + high - low)) + low;
     };
-
     this.init();
 };
