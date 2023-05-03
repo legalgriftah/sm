@@ -60,17 +60,31 @@
                 <li id="7"><img class="slot" src="img/slot/cofrewild.png" alt=""></li>
             </ul>
         </div>
-    </div>
-    <!--<button type="button" class="btn btn-success btn-lg" id="btn-example6" ></button>
-    <p id="credits"></p>
-    <p id="money"></p>
-    -->
+    </div> 
     <button type="button" id="btn-example6" >
         <img  src="img/spin.png" style="
         max-width: 100%; top: 0;position:absolute; z-index: 0; background-repeat:no-repeat;
         background-size:contain;
         background-position:center;"/>
     </button>
+        <p id="credits" style="
+    position: absolute;
+    z-index: 0;
+    bottom: 34%;
+    font-size: 300%;
+">CREDITS</p>
+<p id="spins"style="
+position: absolute;
+z-index: 0;
+bottom: 30%;
+font-size: 300%;
+">SPINS</p>
+        <p id="money"style="
+    position: absolute;
+    z-index: 0;
+    bottom: 26%;
+    font-size: 300%;
+">MONEY</p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -78,10 +92,12 @@
     <script type="text/javascript">
        var credits = 30;
        var money = 0;
-      /* var paragraph = document.getElementById("credits");
-       // paragraph.textContent = 'Credit ' + credits;
+       var paragraph = document.getElementById("credits");
+        paragraph.textContent = 'Credit ' + credits;
         var paragraph2 = document.getElementById("money");
-       // paragraph2.textContent = 'Money ' + money;*/
+        paragraph2.textContent = 'Money ' + money;
+        var paragraph3 = document.getElementById("spins");
+        paragraph3.textContent = 'Spins ' + credits/3;
         $('#btn-example6').click(function() {
             var ul = document.querySelector('ul#first');
         for (var i = ul.children.length; i >= 0; i--) {
@@ -104,32 +120,79 @@
             ul.appendChild(ul.children[Math.random() * i | 0]);
         }
             credits = credits - 3;
-           // paragraph.textContent = 'Credit ' + credits;
+            paragraph.textContent = 'Credit ' + credits;
+            paragraph3.textContent = 'Spins ' + credits/3;
             $('#example6 ul').playSpin({
                 onEnd: function(num) {
                     $('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());
                 },
                 onFinish: function(num) {
-                    if(first == second && second != third){
-                       money = money+3;
-                       
-                    }
-                    if(first == third && first != second){
-                        money = money+3;
-                        
-                    }
-                    if(second == third && second != first){
-                        money = money+3;
-                       
-                    }
-                    if(first == second && second == third){
-                        money = money+6;
-                        
+                    slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3].id;
+                    slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3].id;
+                    slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3].id;
+                    slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3].id;
+                    slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3].id;
+                    
+                    slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4].id;
+                    slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4].id;
+                    slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4].id;
+                    slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4].id;
+                    slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4].id;
+
+                    slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5].id;
+                    slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5].id;
+                    slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5].id;
+                    slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5].id;
+                    slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5].id;
+
+                    if(slot1Pos1 == slot2Pos2 && slot2Pos2 == slot3Pos3 && slot3Pos3 == slot4Pos2 && slot4Pos2 == slot5Pos1){
+                        console.log('premio V');
+                        //filter: brightness(2);
                     }
                     
-                    
-                    $('#lbl-example7-2').text(num);
-                  //  paragraph2.textContent = 'Money ' + money;
+                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('premio primera fila');
+                        money = money + 3;
+                    }
+                    if(slot1Pos2 == slot2Pos2 && slot2Pos2 == slot3Pos2 && slot3Pos2 == slot4Pos2 && slot4Pos2 == slot5Pos2){
+                        console.log('premio segunda fila');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos3){
+                        console.log('premio 3 fila');
+                        money = money + 3;
+                    }
+                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('v pequeña');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
+                        console.log('olla rara');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos2){
+                        console.log('zigzag');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos2 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos2){
+                        console.log('olla abajo');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos2 && slot3Pos2 == slot4Pos3 && slot4Pos3 == slot5Pos3){
+                        console.log('zigzag inverso');
+                        money = money + 3;
+                    }
+
+                    if(slot1Pos3 == slot2Pos2 && slot2Pos2 == slot3Pos1 && slot3Pos1 == slot4Pos2 && slot4Pos2 == slot5Pos3){
+                        console.log('v inversa');
+                        money = money + 3;
+                    }
+                    paragraph2.textContent = 'Money ' + money;
                 }
             });
         });

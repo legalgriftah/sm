@@ -168,63 +168,7 @@ var slotMachine = function (el, options, track) {
                     if ($.isFunction(slot.options.onFinish)) {
                         slot.options.onFinish(totalNum);
                     }
-                  }
-                    slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3].id;
-                    slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3].id;
-                    slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3].id;
-                    slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3].id;
-                    slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3].id;
-                    
-                    slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4].id;
-                    slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4].id;
-                    slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4].id;
-                    slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4].id;
-                    slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4].id;
-
-                    slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5].id;
-                    slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5].id;
-                    slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5].id;
-                    slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5].id;
-                    slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5].id;
-
-                    if(slot1Pos1 == slot2Pos2 && slot2Pos2 == slot3Pos3 && slot3Pos3 == slot4Pos2 && slot4Pos2 == slot5Pos1){
-                        console.log('premio V');
-                    }
-                    
-                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
-                        console.log('premio primera fila');
-                    }
-                    if(slot1Pos2 == slot2Pos2 && slot2Pos2 == slot3Pos2 && slot3Pos2 == slot4Pos2 && slot4Pos2 == slot5Pos2){
-                        console.log('premio segunda fila');
-                    }
-
-                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos3){
-                        console.log('premio 3 fila');
-                    }
-                    if(slot1Pos1 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos1){
-                        console.log('v pequeña');
-                    }
-
-                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos1 && slot3Pos1 == slot4Pos1 && slot4Pos1 == slot5Pos1){
-                        console.log('olla rara');
-                    }
-
-                    if(slot1Pos2 == slot2Pos1 && slot2Pos1 == slot3Pos2 && slot3Pos2 == slot4Pos1 && slot4Pos1 == slot5Pos2){
-                        console.log('zigzag');
-                    }
-
-                    if(slot1Pos2 == slot2Pos3 && slot2Pos3 == slot3Pos3 && slot3Pos3 == slot4Pos3 && slot4Pos3 == slot5Pos2){
-                        console.log('olla abajo');
-                    }
-
-                    if(slot1Pos3 == slot2Pos3 && slot2Pos3 == slot3Pos2 && slot3Pos2 == slot4Pos3 && slot4Pos3 == slot5Pos3){
-                        console.log('zigzag inverso');
-                    }
-
-                    if(slot1Pos3 == slot2Pos2 && slot2Pos2 == slot3Pos1 && slot3Pos1 == slot4Pos2 && slot4Pos2 == slot5Pos3){
-                        console.log('v inversa');
-                    }
-                    
+                  }    
             });
     }
     slot.endAnimation = function(endNum) {
