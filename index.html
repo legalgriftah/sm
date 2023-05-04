@@ -114,23 +114,43 @@ font-size: 300%;
                     slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
                     slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
                     //se debe adelantar
-                    slot1Pos1.className = "";
-                    slot2Pos1.className = "";
-                    slot3Pos1.className = "";
-                    slot4Pos1.className = "";
-                    slot5Pos1.className = "";
+                    slot1Pos1.classList.remove('slot');
+                    slot2Pos1.classList.remove('slot');
+                    slot3Pos1.classList.remove('slot');
+                    slot4Pos1.classList.remove('slot');
+                    slot5Pos1.classList.remove('slot');
                     
-                    slot1Pos2.className = "";
-                    slot2Pos2.className = "";
-                    slot3Pos2.className = "";
-                    slot4Pos2.className = "";
-                    slot5Pos2.className = "";
+                    slot1Pos2.classList.remove('slot');
+                    slot2Pos2.classList.remove('slot');
+                    slot3Pos2.classList.remove('slot');
+                    slot4Pos2.classList.remove('slot');
+                    slot5Pos2.classList.remove('slot');
 
-                    slot1Pos3.className = "";
-                    slot2Pos3.className = "";
-                    slot3Pos3.className = "";
-                    slot4Pos3.className = "";
-                    slot5Pos3.className = "";
+                    slot1Pos3.classList.remove('slot');
+                    slot2Pos3.classList.remove('slot');
+                    slot3Pos3.classList.remove('slot');
+                    slot4Pos3.classList.remove('slot');
+                    slot5Pos3.classList.remove('slot');
+
+                    slot1Pos1.classList.remove('slotWin');
+                    slot2Pos1.classList.remove('slotWin');
+                    slot3Pos1.classList.remove('slotWin');
+                    slot4Pos1.classList.remove('slotWin');
+                    slot5Pos1.classList.remove('slotWin');
+                    
+                    slot1Pos2.classList.remove('slotWin');
+                    slot2Pos2.classList.remove('slotWin');
+                    slot3Pos2.classList.remove('slotWin');
+                    slot4Pos2.classList.remove('slotWin');
+                    slot5Pos2.classList.remove('slotWin');
+
+                    slot1Pos3.classList.remove('slotWin');
+                    slot2Pos3.classList.remove('slotWin');
+                    slot3Pos3.classList.remove('slotWin');
+                    slot4Pos3.classList.remove('slotWin');
+                    slot5Pos3.classList.remove('slotWin');
+
+
        var credits = 60;
        var money = 0;
        var paragraph = document.getElementById("credits");
