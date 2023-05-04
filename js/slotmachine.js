@@ -11,9 +11,6 @@ var slot5Pos1, slot5Pos2, slot5Pos3;
 YA he hardcodeado la parada
 ahora queda entender como van estas máquinas, lo más básico
 para modificar su forma de actuar
-css para marcar:
-filter: brightness(2);
-
 
 jackpot es el mayor premio
 
@@ -85,7 +82,7 @@ var slotMachine = function (el, options, track) {
 
     slot.defaultOptions = {
         easing: '',        // String: easing type for final spin
-        time: 400,             // Number: total time of spin animation
+        time: 420,             // Number: total time of spin animation
         loops: 3,               // Number: times it will spin during the animation
         manualStop: false,      // Boolean: spin until user manually click to stop
         stopSeq: 'leftToRight',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
