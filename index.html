@@ -61,30 +61,41 @@
             </ul>
         </div>
     </div> 
+    <img  src="img/low scores.png" style="
+        max-width: 100%; top: 0;position:absolute; z-index: 0; background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;"/>
     <button type="button" id="btn-example6" >
         <img  src="img/spin.png" style="
         max-width: 100%; top: 0;position:absolute; z-index: 0; background-repeat:no-repeat;
         background-size:contain;
         background-position:center;"/>
     </button>
+    
         <p id="credits" style="
-    position: absolute;
+        position: absolute;
     z-index: 0;
-    bottom: 34%;
+    bottom: 40%;
     font-size: 300%;
-">CREDITS</p>
+    right: 18%;
+    color: white;;
+"></p>
 <p id="spins"style="
 position: absolute;
-z-index: 0;
-bottom: 30%;
-font-size: 300%;
-">SPINS</p>
+    z-index: 0;
+    bottom: 40%;
+    font-size: 300%;
+    right: 6%;
+    color: white;
+"></p>
         <p id="money"style="
     position: absolute;
     z-index: 0;
-    bottom: 26%;
+    bottom: 40%;
     font-size: 300%;
-">MONEY</p>
+    right: 31%;
+    color: white;
+"></p>
 <p id="jackpot"style="
 position: absolute;
 z-index: 0;
@@ -120,11 +131,11 @@ font-size: 300%;
        var credits = 60;
        var money = 0;
        var paragraph = document.getElementById("credits");
-        paragraph.textContent = 'Credit ' + credits;
+        paragraph.textContent = credits;
         var paragraph2 = document.getElementById("money");
-        paragraph2.textContent = 'Money ' + money;
+        paragraph2.textContent =  money;
         var paragraph3 = document.getElementById("spins");
-        paragraph3.textContent = 'Spins ' + credits/3;
+        paragraph3.textContent =  credits/3;
         var paragraph4 = document.getElementById("jackpot");
         paragraph4.textContent = 'Jackpot';
         $('#btn-example6').click(function() {
@@ -149,8 +160,8 @@ font-size: 300%;
             ul.appendChild(ul.children[Math.random() * i | 0]);
         }
             credits = credits - 3;
-            paragraph.textContent = 'Credit ' + credits;
-            paragraph3.textContent = 'Spins ' + credits/3;
+            paragraph.textContent =  credits;
+            paragraph3.textContent =  credits/3;
             paragraph4.textContent = 'Jackpot ' + 42839803;
             $('#example6 ul').playSpin({
                 onEnd: function(num) {
@@ -175,6 +186,7 @@ font-size: 300%;
                     slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
                     slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
                     
+                    //hay que limpiar todos, no solo estos. se recuperan con una query y se iteran para dejarlos como estaban
                     slot1Pos1.className = "slotWin";
                     slot2Pos1.className = "slotWin";
                     slot3Pos1.className = "slotWin";
@@ -410,7 +422,7 @@ font-size: 300%;
                         slot5Pos3.className = "slotWin";
                         money = money + 3;
                     }
-                    paragraph2.textContent = 'Money ' + money;
+                    paragraph2.textContent = money;
                 }
             });
         });
