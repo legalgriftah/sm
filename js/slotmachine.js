@@ -1,40 +1,19 @@
 var startSeqs = {};
 var startNum = 0;
 
-var slot1Pos1, slot1Pos2, slot1Pos3;
-var slot2Pos1, slot2Pos2, slot2Pos3;
-var slot3Pos1, slot3Pos2, slot3Pos3;
-var slot4Pos1, slot4Pos2, slot4Pos3;
-var slot5Pos1, slot5Pos2, slot5Pos3;
-
-/*
-YA he hardcodeado la parada
-ahora queda entender como van estas máquinas, lo más básico
-para modificar su forma de actuar
-
-jackpot es el mayor premio
-
-scatter no se aplica a esta maquina, no hay imagen.
-wild es comodin para todo excepto scatter. Acumular comodines desbloquea algo especial
-https://www.todoslots.es/blog/slots/diferencia-wild-scatter#:~:text=%C2%BFQu%C3%A9%20es%20el%20s%C3%ADmbolo%20Wild,funciones%20especiales%20como%20los%20bonos.
-
-*/
-// jQuery FN
 $.fn.playSpin = function (options) {
     if (this.length) {
-        if ($(this).is(':animated')) return; // Return false if this element is animating
+        if ($(this).is(':animated')) return;
         startSeqs['mainSeq' + (++startNum)] = {};
         $(this).attr('data-playslot', startNum);
 
         var total = this.length;
         var thisSeq = 0;
 
-        // Initialize options
         if (typeof options == 'undefined') {
             options = new Object();
         }
 
-        // Pre-define end nums
         var endNums = [];
         if (typeof options.endNum != 'undefined') {
             if ($.isArray(options.endNum)) {
@@ -67,7 +46,7 @@ $.fn.playSpin = function (options) {
 
 $.fn.stopSpin = function () {
     if (this.length) {
-        if (!$(this).is(':animated')) return; // Return false if this element is not animating
+        if (!$(this).is(':animated')) return;
         if ($(this)[0].hasAttribute('data-playslot')) {
             $.each(startSeqs['mainSeq' + $(this).attr('data-playslot')], function(index, obj) {
                 obj['spinning'] = false;
@@ -81,14 +60,14 @@ var slotMachine = function (el, options, track) {
     slot.$el = $(el);
 
     slot.defaultOptions = {
-        easing: '',        // String: easing type for final spin
-        time: 420,             // Number: total time of spin animation
-        loops: 3,               // Number: times it will spin during the animation
-        manualStop: false,      // Boolean: spin until user manually click to stop
-        stopSeq: 'leftToRight',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
-        endNum: 0,              // Number: animation end at which Number/ sequence of list
-        onEnd : $.noop,         // Function: run on each element spin end, it is passed endNum
-        onFinish: $.noop        // Function: run on all element spin end, it is passed endNum
+        easing: '',
+        time: 420,
+        loops: 3,
+        manualStop: false,
+        stopSeq: 'leftToRight',
+        endNum: 0,
+        onEnd : $.noop,
+        onFinish: $.noop
     };
 
     slot.spinSpeed = 0;
@@ -151,21 +130,6 @@ var slotMachine = function (el, options, track) {
             .animate({'top': finalPos}, finalSpeed, slot.options.easing, function () {
                 slot.$el.find('li').last().remove();
                 slot.endAnimation(slot.options.endNum);
-                if ($.isFunction(slot.options.onEnd)) {
-                    slot.options.onEnd(slot.options.endNum);
-                }
-                if (startSeqs['mainSeq' + track.mainSeq]['totalSpinning'] == 0) {
-                    var totalNum = '';
-                    $.each(startSeqs['mainSeq' + track.mainSeq], function(index, subSeqs) {
-                            if (typeof subSeqs == 'object') {
-                                totalNum += subSeqs['endNum'].toString();
-                            }
-                        }
-                    );
-                    if ($.isFunction(slot.options.onFinish)) {
-                        slot.options.onFinish(totalNum);
-                    }
-                  }    
             });
     }
     slot.endAnimation = function(endNum) {
@@ -177,9 +141,5 @@ var slotMachine = function (el, options, track) {
         startSeqs['mainSeq' + track.mainSeq]['totalSpinning']--;
         startSeqs['mainSeq' + track.mainSeq]['subSeq' + track.subSeq]['endNum'] = endNum;
     }
-
-    slot.randomRange = function (low, high) {
-        return Math.floor(Math.random() * (1 + high - low)) + low;
-    };
     this.init();
 };
