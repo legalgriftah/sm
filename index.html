@@ -31,16 +31,19 @@
     <script src="js/slotmachine.min.js"></script>
     <script src="js/slotmachineUtils.js"></script>
     <script type="text/javascript">
-        populate();
-        $('#btn-example6').click(function() {
-        randomize();
-        calcPlayerStats();
-        updateText();
-        $('#example6 ul').playSpin({
-            onFinish: function(num) {
-                calcPrizes();
-            }
-        });
+            populate();
+            $('#btn-example6').click(function() {
+            lightAll();
+            randomize();
+            calcPlayerStats();
+            updateText();
+            calcSpin();
+            
+            $('#example6 ul').playSpin({
+                onFinish: function(num) {
+                    calcPrizes(); 
+                }
+            });
     });
     </script>
 </body>

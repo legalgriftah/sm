@@ -126,12 +126,30 @@ var slotMachine = function (el, options, track) {
         var finalPos = -((slot.liHeight * slot.options.endNum) - slot.liHeight);
         var finalSpeed = ((slot.spinSpeed * 1.5) * (slot.liCount)) / slot.options.endNum;
         slot.$el
-            .css('top', -slot.listHeight)
-            .animate({'top': finalPos}, finalSpeed, slot.options.easing, function () {
-                slot.$el.find('li').last().remove();
-                slot.endAnimation(slot.options.endNum);
-            });
-    }
+        .css('top', -slot.listHeight)
+        .animate({'top': finalPos}, finalSpeed, slot.options.easing, function () {
+            slot.$el.find('li').last().remove(); // Remove the cloned row
+
+            slot.endAnimation(slot.options.endNum);
+            if ($.isFunction(slot.options.onEnd)) {
+                slot.options.onEnd(slot.options.endNum);
+            }
+
+            // onFinish is every element is finished animation
+            if (startSeqs['mainSeq' + track.mainSeq]['totalSpinning'] == 0) {
+                var totalNum = '';
+                $.each(startSeqs['mainSeq' + track.mainSeq], function(index, subSeqs) {
+                    if (typeof subSeqs == 'object') {
+                        totalNum += subSeqs['endNum'].toString();
+                    }
+                });
+                if ($.isFunction(slot.options.onFinish)) {
+                    slot.options.onFinish(totalNum);
+                }
+            }
+        });
+}
+
     slot.endAnimation = function(endNum) {
         if (slot.options.stopSeq == 'leftToRight' && track.total != track.subSeq) {
             startSeqs['mainSeq' + track.mainSeq]['subSeq' + (track.subSeq + 1)]['spinning'] = false;
