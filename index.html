@@ -1,14 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>jQuery Slot Machine</title>
+    <title>Jungle Slot</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="d58Et_hG0KrLc6xKv03J8U5NA6jqak0kCFxBaz7Y1MM" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
 </head>
-<Body>
+<body>
     <img src="img/background3.png" alt="" style="position:absolute; z-index: 0; background-repeat:no-repeat;
         background-size:contain;
         background-position:center;" >
@@ -31,167 +29,134 @@
         background-size:contain;
         background-position:center;"/>
     </button>
-    
-        <p id="credits" style="
-        position: absolute;
-    z-index: 0;
-    bottom: 40%;
-    font-size: 300%;
-    right: 18%;
-    color: white;;
-"></p>
-<p id="spins"style="
-position: absolute;
-    z-index: 0;
-    bottom: 40%;
-    font-size: 300%;
-    right: 6%;
-    color: white;
-"></p>
-        <p id="money"style="
-    position: absolute;
-    z-index: 0;
-    bottom: 40%;
-    font-size: 300%;
-    right: 31%;
-    color: white;
-"></p>
-<p id="jackpot"style="
-position: absolute;
-z-index: 0;
-bottom: 22%;
-font-size: 300%;
-">JACKPOT</p>
+    <p id="credits"></p>
+    <p id="spins"></p>
+    <p id="money"></p>
+    <p id="jackpot">JACKPOT</p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/slotmachine.js"></script>
     <script type="text/javascript">
+        var ulFirst = document.getElementById("first");
+        var ulSecond = document.getElementById("second");
+        var ulThird = document.getElementById("third");
+        var ulForth = document.getElementById("forth");
+        var ulFifth = document.getElementById("fifth");
 
-    var ulFirst = document.getElementById("first");
-    var ulSecond = document.getElementById("second");
-    var ulThird = document.getElementById("third");
-    var ulForth = document.getElementById("forth");
-    var ulFifth = document.getElementById("fifth");
+        var arrayFirst = [];
+        var arraySecond = [];
+        var arrayThird = [];
+        var arrayForth = [];
+        var arrayFifth = [];
 
-    var arrayFirst = [];
-    var arraySecond = [];
-    var arrayThird = [];
-    var arrayForth = [];
-    var arrayFifth = [];
+        arrayFirst.push("img/slot/banana.png");
+        arrayFirst.push("img/slot/coco.png");
+        arrayFirst.push("img/slot/setas.png");
+        arrayFirst.push("img/slot/k.png");
+        arrayFirst.push("img/slot/melocoton.png");
+        arrayFirst.push("img/slot/pina.png");
+        arrayFirst.push("img/slot/cofrewild.png");
 
-    arrayFirst.push("img/slot/banana.png");
-    arrayFirst.push("img/slot/coco.png");
-    arrayFirst.push("img/slot/setas.png");
-    arrayFirst.push("img/slot/k.png");
-    arrayFirst.push("img/slot/melocoton.png");
-    arrayFirst.push("img/slot/pina.png");
-    arrayFirst.push("img/slot/cofrewild.png");
+        arraySecond.push("img/slot/banana.png");
+        arraySecond.push("img/slot/coco.png");
+        arraySecond.push("img/slot/setas.png");
+        arraySecond.push("img/slot/k.png");
+        arraySecond.push("img/slot/melocoton.png");
+        arraySecond.push("img/slot/pina.png");
+        arraySecond.push("img/slot/cofrewild.png");
 
-    arraySecond.push("img/slot/banana.png");
-    arraySecond.push("img/slot/coco.png");
-    arraySecond.push("img/slot/setas.png");
-    arraySecond.push("img/slot/k.png");
-    arraySecond.push("img/slot/melocoton.png");
-    arraySecond.push("img/slot/pina.png");
-    arraySecond.push("img/slot/cofrewild.png");
+        arrayThird.push("img/slot/banana.png");
+        arrayThird.push("img/slot/coco.png");
+        arrayThird.push("img/slot/setas.png");
+        arrayThird.push("img/slot/k.png");
+        arrayThird.push("img/slot/melocoton.png");
+        arrayThird.push("img/slot/pina.png");
+        arrayThird.push("img/slot/cofrewild.png");
 
-    arrayThird.push("img/slot/banana.png");
-    arrayThird.push("img/slot/coco.png");
-    arrayThird.push("img/slot/setas.png");
-    arrayThird.push("img/slot/k.png");
-    arrayThird.push("img/slot/melocoton.png");
-    arrayThird.push("img/slot/pina.png");
-    arrayThird.push("img/slot/cofrewild.png");
+        arrayForth.push("img/slot/banana.png");
+        arrayForth.push("img/slot/coco.png");
+        arrayForth.push("img/slot/setas.png");
+        arrayForth.push("img/slot/k.png");
+        arrayForth.push("img/slot/melocoton.png");
+        arrayForth.push("img/slot/pina.png");
+        arrayForth.push("img/slot/cofrewild.png");
 
-    arrayForth.push("img/slot/banana.png");
-    arrayForth.push("img/slot/coco.png");
-    arrayForth.push("img/slot/setas.png");
-    arrayForth.push("img/slot/k.png");
-    arrayForth.push("img/slot/melocoton.png");
-    arrayForth.push("img/slot/pina.png");
-    arrayForth.push("img/slot/cofrewild.png");
+        arrayFifth.push("img/slot/banana.png");
+        arrayFifth.push("img/slot/coco.png");
+        arrayFifth.push("img/slot/setas.png");
+        arrayFifth.push("img/slot/k.png");
+        arrayFifth.push("img/slot/melocoton.png");
+        arrayFifth.push("img/slot/pina.png");
+        arrayFifth.push("img/slot/cofrewild.png");
 
-    arrayFifth.push("img/slot/banana.png");
-    arrayFifth.push("img/slot/coco.png");
-    arrayFifth.push("img/slot/setas.png");
-    arrayFifth.push("img/slot/k.png");
-    arrayFifth.push("img/slot/melocoton.png");
-    arrayFifth.push("img/slot/pina.png");
-    arrayFifth.push("img/slot/cofrewild.png");
+        for (var i=0; i<arrayFirst.length; i++){
+            var li=document.createElement('li');
+            ulFirst.appendChild(li);
+            li.innerHTML=li.innerHTML;
+            li.id=[i];
+            var elem = document.createElement("img");
+            elem.setAttribute("src", arrayFirst[i]);
+            li.appendChild(elem);
+        }
+        for (var i=0; i<arraySecond.length; i++){
+            var li=document.createElement('li');
+            ulSecond.appendChild(li);
+            li.innerHTML=li.innerHTML;
+            li.id=[i];
+            var elem = document.createElement("img");
+            elem.setAttribute("src", arraySecond[i]);
+            li.appendChild(elem);
+        }
+        for (var i=0; i<arrayThird.length; i++){
+            var li=document.createElement('li');
+            ulThird.appendChild(li);
+            li.innerHTML=li.innerHTML;
+            li.id=[i];
+            var elem = document.createElement("img");
+            elem.setAttribute("src", arrayThird[i]);
+            li.appendChild(elem);
+        }
+        for (var i=0; i<arrayForth.length; i++){
+            var li=document.createElement('li');
+            ulForth.appendChild(li);
+            li.innerHTML=li.innerHTML;
+            li.id=[i];
+            var elem = document.createElement("img");
+            elem.setAttribute("src", arrayForth[i]);
+            li.appendChild(elem);
+        }
+        for (var i=0; i<arrayFifth.length; i++){
+            var li=document.createElement('li');
+            ulFifth.appendChild(li);
+            li.innerHTML=li.innerHTML;
+            li.id=[i];
+            var elem = document.createElement("img");
+            elem.setAttribute("src", arrayFifth[i]);
+            li.appendChild(elem);
+        }
+        //se debe adelantar
+        slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
+        slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
+        slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
+        slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3];
+        slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3];
+        
+        slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4];
+        slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4];
+        slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4];
+        slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4];
+        slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4];
 
-
-    for (var i=0; i<arrayFirst.length; i++){
-        var li=document.createElement('li');
-        ulFirst.appendChild(li);
-        li.innerHTML=li.innerHTML;
-        li.id=[i];
-        var elem = document.createElement("img");
-        elem.setAttribute("src", arrayFirst[i]);
-        li.appendChild(elem);
-    }
-    for (var i=0; i<arraySecond.length; i++){
-        var li=document.createElement('li');
-        ulSecond.appendChild(li);
-        li.innerHTML=li.innerHTML;
-        li.id=[i];
-        var elem = document.createElement("img");
-        elem.setAttribute("src", arraySecond[i]);
-        li.appendChild(elem);
-    }
-    for (var i=0; i<arrayThird.length; i++){
-        var li=document.createElement('li');
-        ulThird.appendChild(li);
-        li.innerHTML=li.innerHTML;
-        li.id=[i];
-        var elem = document.createElement("img");
-        elem.setAttribute("src", arrayThird[i]);
-        li.appendChild(elem);
-    }
-    for (var i=0; i<arrayForth.length; i++){
-        var li=document.createElement('li');
-        ulForth.appendChild(li);
-        li.innerHTML=li.innerHTML;
-        li.id=[i];
-        var elem = document.createElement("img");
-        elem.setAttribute("src", arrayForth[i]);
-        li.appendChild(elem);
-    }
-    for (var i=0; i<arrayFifth.length; i++){
-        var li=document.createElement('li');
-        ulFifth.appendChild(li);
-        li.innerHTML=li.innerHTML;
-        li.id=[i];
-        var elem = document.createElement("img");
-        elem.setAttribute("src", arrayFifth[i]);
-        li.appendChild(elem);
-    }
-
-
-       slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
-                    slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
-                    slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
-                    slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3];
-                    slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3];
-                    
-                    slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4];
-                    slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4];
-                    slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4];
-                    slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4];
-                    slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4];
-
-                    slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5];
-                    slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5];
-                    slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5];
-                    slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
-                    slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
-                    //se debe adelantar
-                    
-
-
-       var credits = 60;
-       var money = 0;
-       var paragraph = document.getElementById("credits");
+        slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5];
+        slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5];
+        slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5];
+        slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
+        slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
+                        
+        var credits = 60;
+        var money = 0;
+        var paragraph = document.getElementById("credits");
         paragraph.textContent = credits;
         var paragraph2 = document.getElementById("money");
         paragraph2.textContent =  money;
@@ -220,273 +185,273 @@ font-size: 300%;
         for (var i = ul.children.length; i >= 0; i--) {
             ul.appendChild(ul.children[Math.random() * i | 0]);
         }
-            credits = credits - 3;
-            paragraph.textContent =  credits;
-            paragraph3.textContent =  credits/3;
-            paragraph4.textContent = 'Jackpot ' + 42839803;
-            $('#example6 ul').playSpin({
-                onEnd: function(num) {
-                    $('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());
-                },
-                onFinish: function(num) {
-                    slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
-                    slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
-                    slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
-                    slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3];
-                    slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3];
-                    
-                    slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4];
-                    slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4];
-                    slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4];
-                    slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4];
-                    slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4];
+        credits = credits - 3;
+        paragraph.textContent =  credits;
+        paragraph3.textContent =  credits/3;
+        paragraph4.textContent = 'Jackpot ' + 42839803;
+        $('#example6 ul').playSpin({
+            onEnd: function(num) {
+                $('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());
+            },
+            onFinish: function(num) {
+                slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
+                slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
+                slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
+                slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3];
+                slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3];
+                
+                slot1Pos2 = document.querySelector('ul#first').getElementsByTagName("li")[4];
+                slot2Pos2 = document.querySelector('ul#second').getElementsByTagName("li")[4];
+                slot3Pos2 = document.querySelector('ul#third').getElementsByTagName("li")[4];
+                slot4Pos2 = document.querySelector('ul#forth').getElementsByTagName("li")[4];
+                slot5Pos2 = document.querySelector('ul#fifth').getElementsByTagName("li")[4];
 
-                    slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5];
-                    slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5];
-                    slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5];
-                    slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
-                    slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
+                slot1Pos3 = document.querySelector('ul#first').getElementsByTagName("li")[5];
+                slot2Pos3 = document.querySelector('ul#second').getElementsByTagName("li")[5];
+                slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5];
+                slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
+                slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
+                
+                //hay que limpiar todos, no solo estos. se recuperan con una query y se iteran para dejarlos como estaban
+                slot1Pos1.className = "slotWin";
+                slot2Pos1.className = "slotWin";
+                slot3Pos1.className = "slotWin";
+                slot4Pos1.className = "slotWin";
+                slot5Pos1.className = "slotWin";
+
+                slot1Pos2.className = "slotWin";
+                slot2Pos2.className = "slotWin";
+                slot3Pos2.className = "slotWin";
+                slot4Pos2.className = "slotWin";
+                slot5Pos2.className = "slotWin";
+
+                slot1Pos3.className = "slotWin";
+                slot2Pos3.className = "slotWin";
+                slot3Pos3.className = "slotWin";
+                slot4Pos3.className = "slotWin";
+                slot5Pos3.className = "slotWin";
+                
+                
+                if(slot1Pos1.id == slot2Pos2.id && slot2Pos2.id == slot3Pos3.id && slot3Pos3.id == slot4Pos2.id && slot4Pos2.id == slot5Pos1.id){
+                    console.log('premio V');
+                    slot1Pos1.className = "slotWin";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slotWin";
                     
-                    //hay que limpiar todos, no solo estos. se recuperan con una query y se iteran para dejarlos como estaban
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slotWin";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slotWin";
+                    slot5Pos2.className = "slot";
+
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slotWin";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                }
+                
+                if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
+                    console.log('premio primera fila');
                     slot1Pos1.className = "slotWin";
                     slot2Pos1.className = "slotWin";
                     slot3Pos1.className = "slotWin";
                     slot4Pos1.className = "slotWin";
                     slot5Pos1.className = "slotWin";
+                    
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slot";
 
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+                if(slot1Pos2.id == slot2Pos2.id && slot2Pos2.id == slot3Pos2.id && slot3Pos2.id == slot4Pos2.id && slot4Pos2.id == slot5Pos2.id){
+                    console.log('premio segunda fila');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slot";
+                    
                     slot1Pos2.className = "slotWin";
                     slot2Pos2.className = "slotWin";
                     slot3Pos2.className = "slotWin";
                     slot4Pos2.className = "slotWin";
                     slot5Pos2.className = "slotWin";
 
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+
+                if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
+                    console.log('premio 3 fila');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slot";
+
                     slot1Pos3.className = "slotWin";
                     slot2Pos3.className = "slotWin";
                     slot3Pos3.className = "slotWin";
                     slot4Pos3.className = "slotWin";
                     slot5Pos3.className = "slotWin";
-                    
-                    
-                    if(slot1Pos1.id == slot2Pos2.id && slot2Pos2.id == slot3Pos3.id && slot3Pos3.id == slot4Pos2.id && slot4Pos2.id == slot5Pos1.id){
-                        console.log('premio V');
-                        slot1Pos1.className = "slotWin";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slotWin";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slotWin";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slotWin";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slotWin";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                    }
-                    
-                    if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
-                        console.log('premio primera fila');
-                        slot1Pos1.className = "slotWin";
-                        slot2Pos1.className = "slotWin";
-                        slot3Pos1.className = "slotWin";
-                        slot4Pos1.className = "slotWin";
-                        slot5Pos1.className = "slotWin";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-                    if(slot1Pos2.id == slot2Pos2.id && slot2Pos2.id == slot3Pos2.id && slot3Pos2.id == slot4Pos2.id && slot4Pos2.id == slot5Pos2.id){
-                        console.log('premio segunda fila');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slotWin";
-                        slot2Pos2.className = "slotWin";
-                        slot3Pos2.className = "slotWin";
-                        slot4Pos2.className = "slotWin";
-                        slot5Pos2.className = "slotWin";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
-                        console.log('premio 3 fila');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slotWin";
-                        slot2Pos3.className = "slotWin";
-                        slot3Pos3.className = "slotWin";
-                        slot4Pos3.className = "slotWin";
-                        slot5Pos3.className = "slotWin";
-                        money = money + 3;
-                    }
-                    if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
-                        console.log('v pequeña');
-                        slot1Pos1.className = "slotWin";
-                        slot2Pos1.className = "slotWin";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slotWin";
-                        slot5Pos1.className = "slotWin";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slotWin";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
-                        console.log('olla rara');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slotWin";
-                        slot3Pos1.className = "slotWin";
-                        slot4Pos1.className = "slotWin";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slotWin";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slotWin";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
-                        console.log('zigzag');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slotWin";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slotWin";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slotWin";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slotWin";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slotWin";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos2.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos2.id){
-                        console.log('olla abajo');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slotWin";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slotWin";
-
-                        slot1Pos3.className = "slot";
-                        slot2Pos3.className = "slotWin";
-                        slot3Pos3.className = "slotWin";
-                        slot4Pos3.className = "slotWin";
-                        slot5Pos3.className = "slot";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos2.id && slot3Pos2.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
-                        console.log('zigzag inverso');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slot";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slot";
-                        slot3Pos2.className = "slotWin";
-                        slot4Pos2.className = "slot";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slotWin";
-                        slot2Pos3.className = "slotWin";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slotWin";
-                        slot5Pos3.className = "slotWin";
-                        money = money + 3;
-                    }
-
-                    if(slot1Pos3.id == slot2Pos2.id && slot2Pos2.id == slot3Pos1.id && slot3Pos1.id == slot4Pos2.id && slot4Pos2.id == slot5Pos3.id){
-                        console.log('v inversa');
-                        slot1Pos1.className = "slot";
-                        slot2Pos1.className = "slot";
-                        slot3Pos1.className = "slotWin";
-                        slot4Pos1.className = "slot";
-                        slot5Pos1.className = "slot";
-                        
-                        slot1Pos2.className = "slot";
-                        slot2Pos2.className = "slotWin";
-                        slot3Pos2.className = "slot";
-                        slot4Pos2.className = "slotWin";
-                        slot5Pos2.className = "slot";
-
-                        slot1Pos3.className = "slotWin";
-                        slot2Pos3.className = "slot";
-                        slot3Pos3.className = "slot";
-                        slot4Pos3.className = "slot";
-                        slot5Pos3.className = "slotWin";
-                        money = money + 3;
-                    }
-                    paragraph2.textContent = money;
+                    money = money + 3;
                 }
-            });
+                if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
+                    console.log('v pequeña');
+                    slot1Pos1.className = "slotWin";
+                    slot2Pos1.className = "slotWin";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slotWin";
+                    slot5Pos1.className = "slotWin";
+                    
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slotWin";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slot";
+
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+
+                if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
+                    console.log('olla rara');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slotWin";
+                    slot3Pos1.className = "slotWin";
+                    slot4Pos1.className = "slotWin";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slotWin";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slotWin";
+
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+
+                if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
+                    console.log('zigzag');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slotWin";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slotWin";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slotWin";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slotWin";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slotWin";
+
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+
+                if(slot1Pos2.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos2.id){
+                    console.log('olla abajo');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slotWin";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slotWin";
+
+                    slot1Pos3.className = "slot";
+                    slot2Pos3.className = "slotWin";
+                    slot3Pos3.className = "slotWin";
+                    slot4Pos3.className = "slotWin";
+                    slot5Pos3.className = "slot";
+                    money = money + 3;
+                }
+
+                if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos2.id && slot3Pos2.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
+                    console.log('zigzag inverso');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slot";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slot";
+                    slot3Pos2.className = "slotWin";
+                    slot4Pos2.className = "slot";
+                    slot5Pos2.className = "slot";
+
+                    slot1Pos3.className = "slotWin";
+                    slot2Pos3.className = "slotWin";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slotWin";
+                    slot5Pos3.className = "slotWin";
+                    money = money + 3;
+                }
+
+                if(slot1Pos3.id == slot2Pos2.id && slot2Pos2.id == slot3Pos1.id && slot3Pos1.id == slot4Pos2.id && slot4Pos2.id == slot5Pos3.id){
+                    console.log('v inversa');
+                    slot1Pos1.className = "slot";
+                    slot2Pos1.className = "slot";
+                    slot3Pos1.className = "slotWin";
+                    slot4Pos1.className = "slot";
+                    slot5Pos1.className = "slot";
+                    
+                    slot1Pos2.className = "slot";
+                    slot2Pos2.className = "slotWin";
+                    slot3Pos2.className = "slot";
+                    slot4Pos2.className = "slotWin";
+                    slot5Pos2.className = "slot";
+
+                    slot1Pos3.className = "slotWin";
+                    slot2Pos3.className = "slot";
+                    slot3Pos3.className = "slot";
+                    slot4Pos3.className = "slot";
+                    slot5Pos3.className = "slotWin";
+                    money = money + 3;
+                }
+                paragraph2.textContent = money;
+            }
         });
+    });
     </script>
 </body>
 </html>

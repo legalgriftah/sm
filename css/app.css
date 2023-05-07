@@ -3,6 +3,37 @@ body {
     height: 100%;
     position: absolute;
 }
+.credits{
+    position: absolute;
+    z-index: 0;
+    bottom: 40%;
+    font-size: 300%;
+    right: 18%;
+    color: white;
+}
+
+.spins{
+    position: absolute;
+    z-index: 0;
+    bottom: 40%;
+    font-size: 300%;
+    right: 6%;
+    color: white;
+}
+.money{
+    position: absolute;
+    z-index: 0;
+    bottom: 40%;
+    font-size: 300%;
+    right: 31%;
+    color: white;
+}
+.jackpot{
+    position: absolute;
+    z-index: 0;
+    bottom: 22%;
+    font-size: 300%;
+}
 .slot{
    filter: brightness(50%);
 }
@@ -27,24 +58,15 @@ img {
     position: absolute;
 }
 .slotwrapper ul {
-
     list-style: none;
     position: relative;
     float: left;
-    
 }
-.slotwrapper ul {
 
-}
 .slotwrapper ul li img {
     vertical-align: top;
 }
 
-
-/* Example 10 override slotwrapper */
-#example6 {
-    
-}
 #example6 ul {
     width: 20%;
     padding-left: 0px;
