@@ -14,51 +14,11 @@
         background-position:center;" >
     <div style="padding-left: 5%;padding-right: 5%; padding-top:15%; position: relative;">
         <div class="slotwrapper" id="example6" style="z-index: 1;">      
-            <ul id="first">
-                <li id="1"><img src="img/slot/banana.png" alt=""></li>
-                <li id="2"><img src="img/slot/coco.png" alt=""></li>
-                <li id="3"><img src="img/slot/setas.png" alt=""></li>
-                <li id="4"><img src="img/slot/k.png" alt=""></li>
-                <li id="5"><img src="img/slot/melocoton.png" alt=""></li>
-                <li id="6"><img src="img/slot/pina.png" alt=""></li>
-                <li id="7"><img src="img/slot/cofrewild.png" alt=""></li>
-            </ul>
-            <ul id="second">
-                <li id="1"><img src="img/slot/banana.png" alt=""></li>
-                <li id="2"><img src="img/slot/coco.png" alt=""></li>
-                <li id="3"><img src="img/slot/setas.png" alt=""></li>
-                <li id="4"><img src="img/slot/k.png" alt=""></li>
-                <li id="5"><img src="img/slot/melocoton.png" alt=""></li>
-                <li id="6"><img src="img/slot/pina.png" alt=""></li>
-                <li id="7"><img src="img/slot/cofrewild.png" alt=""></li>
-            </ul>
-            <ul id="third">
-                <li id="1"><img src="img/slot/banana.png" alt=""></li>
-                <li id="2"><img src="img/slot/coco.png" alt=""></li>
-                <li id="3"><img src="img/slot/setas.png" alt=""></li>
-                <li id="4"><img src="img/slot/k.png" alt=""></li>
-                <li id="5"><img src="img/slot/melocoton.png" alt=""></li>
-                <li id="6"><img src="img/slot/pina.png" alt=""></li>
-                <li id="7"><img src="img/slot/cofrewild.png" alt=""></li>
-            </ul>
-            <ul id="forth">
-                <li id="1"><img src="img/slot/banana.png" alt=""></li>
-                <li id="2"><img src="img/slot/coco.png" alt=""></li>
-                <li id="3"><img src="img/slot/setas.png" alt=""></li>
-                <li id="4"><img src="img/slot/k.png" alt=""></li>
-                <li id="5"><img src="img/slot/melocoton.png" alt=""></li>
-                <li id="6"><img src="img/slot/pina.png" alt=""></li>
-                <li id="7"><img src="img/slot/cofrewild.png" alt=""></li>
-            </ul>
-            <ul id="fifth">
-                <li id="1"><img src="img/slot/banana.png" alt=""></li>
-                <li id="2"><img src="img/slot/coco.png" alt=""></li>
-                <li id="3"><img src="img/slot/setas.png" alt=""></li>
-                <li id="4"><img src="img/slot/k.png" alt=""></li>
-                <li id="5"><img src="img/slot/melocoton.png" alt=""></li>
-                <li id="6"><img src="img/slot/pina.png" alt=""></li>
-                <li id="7"><img src="img/slot/cofrewild.png" alt=""></li>
-            </ul>
+            <ul id="first"></ul>
+            <ul id="second"></ul>
+            <ul id="third"></ul>
+            <ul id="forth"></ul>
+            <ul id="fifth"></ul>
         </div>
     </div> 
     <img  src="img/low scores.png" style="
@@ -107,6 +67,107 @@ font-size: 300%;
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/slotmachine.js"></script>
     <script type="text/javascript">
+
+    var ulFirst = document.getElementById("first");
+    var ulSecond = document.getElementById("second");
+    var ulThird = document.getElementById("third");
+    var ulForth = document.getElementById("forth");
+    var ulFifth = document.getElementById("fifth");
+
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+
+    arrayFirst.push("img/slot/banana.png");
+    arrayFirst.push("img/slot/coco.png");
+    arrayFirst.push("img/slot/setas.png");
+    arrayFirst.push("img/slot/k.png");
+    arrayFirst.push("img/slot/melocoton.png");
+    arrayFirst.push("img/slot/pina.png");
+    arrayFirst.push("img/slot/cofrewild.png");
+
+    arraySecond.push("img/slot/banana.png");
+    arraySecond.push("img/slot/coco.png");
+    arraySecond.push("img/slot/setas.png");
+    arraySecond.push("img/slot/k.png");
+    arraySecond.push("img/slot/melocoton.png");
+    arraySecond.push("img/slot/pina.png");
+    arraySecond.push("img/slot/cofrewild.png");
+
+    arrayThird.push("img/slot/banana.png");
+    arrayThird.push("img/slot/coco.png");
+    arrayThird.push("img/slot/setas.png");
+    arrayThird.push("img/slot/k.png");
+    arrayThird.push("img/slot/melocoton.png");
+    arrayThird.push("img/slot/pina.png");
+    arrayThird.push("img/slot/cofrewild.png");
+
+    arrayForth.push("img/slot/banana.png");
+    arrayForth.push("img/slot/coco.png");
+    arrayForth.push("img/slot/setas.png");
+    arrayForth.push("img/slot/k.png");
+    arrayForth.push("img/slot/melocoton.png");
+    arrayForth.push("img/slot/pina.png");
+    arrayForth.push("img/slot/cofrewild.png");
+
+    arrayFifth.push("img/slot/banana.png");
+    arrayFifth.push("img/slot/coco.png");
+    arrayFifth.push("img/slot/setas.png");
+    arrayFifth.push("img/slot/k.png");
+    arrayFifth.push("img/slot/melocoton.png");
+    arrayFifth.push("img/slot/pina.png");
+    arrayFifth.push("img/slot/cofrewild.png");
+
+
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+
+
        slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
                     slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
                     slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
