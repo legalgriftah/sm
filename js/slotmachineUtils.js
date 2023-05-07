@@ -101,6 +101,7 @@ function populate (){
 function calcPlayerStats (){
     player.setCredits = player.getCredits -3;
     player.setSpins = player.getCredits / 3;
+    player.setPlayed = player.getPlayed + 1;
 }
 
 function randomize (){
@@ -184,20 +185,22 @@ function calcSpin(){
     
     randomPos = Number(getRandom(0, arrayImgs.length-1));
 
-    slot1Pos1.id = 1;
+    slot1Pos1.id = arrayImgs.length-1;
     slot1Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
     
-    slot2Pos1.id = 1;
+    slot2Pos1.id = arrayImgs.length-1;
     slot2Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
     
-    slot3Pos1.id = 1;
+    slot3Pos1.id = arrayImgs.length-1;
     slot3Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
     
-    slot4Pos1.id = 1;
+    slot4Pos1.id = arrayImgs.length-1;
     slot4Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
     
-    slot5Pos1.id = 1;
+    slot5Pos1.id = arrayImgs.length-1;
     slot5Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
+
+    //ELIMINAR EL ELEGIDO PARA EVITAR DUPLICADOS? estudiar comportamiento para corregir la deteccion de los premios
 }
 
 function calcPrizes(){
@@ -259,6 +262,7 @@ function calcPrizes(){
         slot3Pos3.className = "slot";
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
+        player.setWinned = player.getWinned + 1;
     }
     if(slot1Pos2.id == slot2Pos2.id && slot2Pos2.id == slot3Pos2.id && slot3Pos2.id == slot4Pos2.id && slot4Pos2.id == slot5Pos2.id){
         console.log('premio segunda fila');
@@ -432,6 +436,9 @@ const player = {
     credits : 60,
     money : 0,
     spins : credits/3,
+    winned : 0,
+    payed: 0,
+    played: 0,
     set setCredits(credits) {
         this.credits = credits;
     },
@@ -441,6 +448,15 @@ const player = {
     set setSpins(spins){
         this.spins = spins;
     },
+    set setWinned(winned){
+        this.winned = winned;
+    },
+    set setPayed(payed){
+        this.payed = payed;
+    },
+    set setPlayed(played){
+        this.played = played;
+    },
     get getCredits() {
         return this.credits;
     },
@@ -449,5 +465,14 @@ const player = {
     },
     get getSpins(){
         return this.spins;
+    },
+    get getWinned(){
+        return this.winned;
+    },
+    get getPayed(){
+        return this.payed;
+    },
+    get getPlayed(){
+        return this.played;
     }
 };
