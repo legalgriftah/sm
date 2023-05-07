@@ -3,6 +3,15 @@ body {
     height: 100%;
     position: absolute;
 }
+.background{
+    position:absolute; z-index: 0; background-repeat:no-repeat;
+        background-size:contain;
+        background-position:center;
+}
+.top{
+    padding-top:15%; 
+    position: relative;
+}
 .credits{
     position: absolute;
     z-index: 0;
@@ -52,6 +61,25 @@ img {
     position: absolute;
     left: 18%;
     top: 86%;
+    z-index: 1;
+}
+.scores{
+    max-width: 100%; 
+    top: 0;
+    position:absolute; 
+    z-index: 0; 
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+.spinImg{
+    max-width: 100%; 
+    top: 0;
+    position:absolute;
+    z-index: 0;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 .btn-success{
     z-index: 2;
