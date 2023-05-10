@@ -206,12 +206,12 @@ function getRandom(min, max) {
 }
 
 function calcSpin(){
+    
     var percentPays = ((player.getWinned / player.payed) * 100);
     console.log((player.getWinned / player.payed) * 100);
-    if(percentPays < 50){        
-        pr = getRandom(0,10);
+    if(percentPays < 50){      
         
-
+        pr = getRandom(0,10);
          /*switch (pr) {
             case 0:
                 //primera linea
@@ -246,18 +246,42 @@ function calcSpin(){
                 $('ul#third li#1.slotWin').insertBefore('ul#third li#6.slotWin'); //coco
               break;
             case 4:
+                //-.-
+                //$('ul#first li#5.slotWin').insertBefore('ul#first li#3.slotWin'); //pina
+                //$('ul#second li#5.slotWin').insertBefore('ul#second li#3.slotWin'); //pina
+                //$('ul#third li#5.slotWin').insertBefore('ul#third li#4.slotWin'); //pina
+                //$('ul#forth li#5.slotWin').insertBefore('ul#forth li#3.slotWin'); //pina
+                //$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#3.slotWin'); //pina
               break;
             case 5:
+                //olla rara
+                //$('ul#first li#2.slotWin').insertBefore('ul#first li#5.slotWin'); //seta
+                //$('ul#second li#2.slotWin').insertBefore('ul#second li#4.slotWin'); //seta
+                //$('ul#third li#2.slotWin').insertBefore('ul#third li#4.slotWin'); //seta
+                //$('ul#forth li#2.slotWin').insertBefore('ul#forth li#4.slotWin'); //seta
+                //$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#5.slotWin'); //seta
               break;
             case 6:
+                //zigzag
+                //$('ul#first li#3.slotWin').insertBefore('ul#first li#5.slotWin'); //K, tiro estándar
+                //$('ul#second li#3.slotWin').insertBefore('ul#second li#4.slotWin'); //K, tiro estándar
+                //$('ul#third li#3.slotWin').insertBefore('ul#third li#5.slotWin'); //K, tiro estándar
+                //$('ul#forth li#3.slotWin').insertBefore('ul#forth li#4.slotWin'); //K, tiro estándar
+                //$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#5.slotWin'); //K, tiro estándar
               break;
             case 7:
+                //olla abajo
+                //$('ul#first li#5.slotWin').insertBefore('ul#first li#4.slotWin'); //pina
+                //$('ul#second li#5.slotWin').insertBefore('ul#second li#5.slotWin');//pina
+                //$('ul#third li#5.slotWin').insertBefore('ul#third li#5.slotWin'); //pina
+                //$('ul#forth li#5.slotWin').insertBefore('ul#forth li#5.slotWin'); //pina
+                //$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#4.slotWin'); //pina
               break;
             case 8:
+                //zigzag inverso
                 break;
             case 9:
-              break;
-            case 10:
+                //v inversa
               break;
          }
          test = "ul#first li#6.slotWin" ;
@@ -514,7 +538,7 @@ function calcPrizes(){
         player.setCredits = Number(Number(player.getCredits) +  Number(slot3Pos1.id));
     }
     if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
-        console.log('v pequeña');
+        console.log('-.- pequeña');
         slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slotWin";
         slot3Pos1.className = "slot";
