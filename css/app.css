@@ -44,7 +44,7 @@ body {
     font-size: 300%;
 }
 .slot{
-   filter: brightness(50%);
+   filter: brightness(100%);
 }
 .slotWin{
     filter: brightness(100%);

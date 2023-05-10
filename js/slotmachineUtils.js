@@ -98,6 +98,14 @@ function populate (){
     }
 }
 
+function startUtils(){
+    lightAll();
+    calcPlayerStats();
+    updateText();
+  //  randomize();
+    calcSpin();
+}
+
 function calcPlayerStats (){
     player.setCredits = player.getCredits -3;
     player.setSpins = player.getCredits / 3;
@@ -136,6 +144,7 @@ function remove () {
         child = e.lastElementChild;
     }
 }
+
 function randomize (){
     var ul = document.querySelector('ul#first');
     for (var i = ul.children.length; i >= 0; i--) {
@@ -161,12 +170,12 @@ function randomize (){
 
 function updateText (){
     var paragraph = document.getElementById("credits");
-        var paragraph3 = document.getElementById("spins");
-        var paragraph4 = document.getElementById("jackpot");
-        paragraph4.textContent = 'Jackpot';
-        paragraph.textContent =  player.getCredits;
-        paragraph3.textContent =  player.getSpins;
-        paragraph4.textContent = 'Jackpot ' + 42839803;
+    var paragraph3 = document.getElementById("spins");
+    var paragraph4 = document.getElementById("jackpot");
+    paragraph4.textContent = 'Jackpot';
+    paragraph.textContent =  player.getCredits;
+    paragraph3.textContent =  player.getSpins;
+    paragraph4.textContent = 'Jackpot ' + 42839803;
 }
 
 function lightAll (){
@@ -199,45 +208,198 @@ function getRandom(min, max) {
 function calcSpin(){
     var percentPays = ((player.getWinned / player.payed) * 100);
     console.log((player.getWinned / player.payed) * 100);
-    if(percentPays < 50){
-        arrayImgs = [];
-        arrayImgs.push("img/slot/banana.png");
-        arrayImgs.push("img/slot/coco.png");
-        arrayImgs.push("img/slot/setas.png");
-        arrayImgs.push("img/slot/k.png");
-        arrayImgs.push("img/slot/melocoton.png");
-        arrayImgs.push("img/slot/pina.png");
-        arrayImgs.push("img/slot/cofrewild.png");
+    if(percentPays < 50){        
+        pr = getRandom(0,10);
+        
 
-        slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
-        slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
-        slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
-        slot4Pos1 = document.querySelector('ul#forth').getElementsByTagName("li")[3];
-        slot5Pos1 = document.querySelector('ul#fifth').getElementsByTagName("li")[3];
-        
-        randomPos = Number(getRandom(0, arrayImgs.length-1));
+         /*switch (pr) {
+            case 0:
+                //primera linea
+                $('ul#first li#0.slotWin').insertBefore('ul#first li#4.slotWin');
+                $('ul#second li#0.slotWin').insertBefore('ul#second li#4.slotWin');
+                $('ul#third li#0.slotWin').insertBefore('ul#third li#4.slotWin');
+                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#4.slotWin');
+                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#4.slotWin');
+              break;
+            case 1:
+                //segunda linea
+                $('ul#first li#0.slotWin').insertBefore('ul#first li#5.slotWin');
+                $('ul#second li#0.slotWin').insertBefore('ul#second li#5.slotWin');
+                $('ul#third li#0.slotWin').insertBefore('ul#third li#5.slotWin');
+                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#5.slotWin');
+                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#5.slotWin');
+                break;
+            case 2:
+                //tercera linea
+                $('ul#first li#0.slotWin').insertBefore('ul#first li#6.slotWin');
+                $('ul#second li#0.slotWin').insertBefore('ul#second li#6.slotWin');
+                $('ul#third li#0.slotWin').insertBefore('ul#third li#6.slotWin');
+                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#6.slotWin');
+                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#6.slotWin');
+              break;
+            case 3:
+                //V
+                $('ul#first li#1.slotWin').insertBefore('ul#first li#4.slotWin'); //coco
+                $('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#4.slotWin'); //coco
+                $('ul#second li#1.slotWin').insertBefore('ul#second li#5.slotWin'); //coco
+                $('ul#forth li#1.slotWin').insertBefore('ul#forth li#5.slotWin'); //coco
+                $('ul#third li#1.slotWin').insertBefore('ul#third li#6.slotWin'); //coco
+              break;
+            case 4:
+              break;
+            case 5:
+              break;
+            case 6:
+              break;
+            case 7:
+              break;
+            case 8:
+                break;
+            case 9:
+              break;
+            case 10:
+              break;
+         }
+         test = "ul#first li#6.slotWin" ;
+         test2 = 'ul#first li#3.slotWin';
+         $(test).insertBefore(test2);
+//slot1Pos1
+//$('ul#first li#0.slotWin').insertBefore('ul#first li#4.slotWin'); //banana
+//$('ul#first li#1.slotWin').insertBefore('ul#first li#4.slotWin'); //coco
+//$('ul#first li#2.slotWin').insertBefore('ul#first li#4.slotWin'); //seta
+//$('ul#first li#3.slotWin').insertBefore('ul#first li#4.slotWin'); //K, tiro estándar
+//$('ul#first li#4.slotWin').insertBefore('ul#first li#3.slotWin'); //melocoton
+//$('ul#first li#5.slotWin').insertBefore('ul#first li#3.slotWin'); //pina
+//$('ul#first li#6.slotWin').insertBefore('ul#first li#3.slotWin'); //cofre
 
-        slot1Pos1.id = arrayImgs.length-1;
-        slot1Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
-        
-        slot2Pos1.id = arrayImgs.length-1;
-        slot2Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
-        
-        slot3Pos1.id = arrayImgs.length-1;
-        slot3Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
-        
-        slot4Pos1.id = arrayImgs.length-1;
-        slot4Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
-        
-        slot5Pos1.id = arrayImgs.length-1;
-        slot5Pos1.firstChild.setAttribute("src", arrayImgs[randomPos]);
-    }else{
-        randomize();
+//slot1Pos2
+//$('ul#first li#0.slotWin').insertBefore('ul#first li#5.slotWin'); //banana
+//$('ul#first li#1.slotWin').insertBefore('ul#first li#5.slotWin'); //coco
+//$('ul#first li#2.slotWin').insertBefore('ul#first li#5.slotWin'); //seta
+//$('ul#first li#3.slotWin').insertBefore('ul#first li#5.slotWin'); //K, tiro estándar
+//$('ul#first li#4.slotWin').insertBefore('ul#first li#4.slotWin'); //melocoton
+//$('ul#first li#5.slotWin').insertBefore('ul#first li#4.slotWin'); //pina
+//$('ul#first li#6.slotWin').insertBefore('ul#first li#4.slotWin'); //cofre
+
+//slot1Pos3
+//$('ul#first li#0.slotWin').insertBefore('ul#first li#6.slotWin'); //banana
+//$('ul#first li#1.slotWin').insertBefore('ul#first li#6.slotWin'); //coco
+//$('ul#first li#2.slotWin').insertBefore('ul#first li#6.slotWin'); //seta
+//$('ul#first li#3.slotWin').insertBefore('ul#first li#6.slotWin'); //K, tiro estándar
+//$('ul#first li#4.slotWin').insertBefore('ul#first li#5.slotWin'); //melocoton
+//$('ul#first li#5.slotWin').insertBefore('ul#first li#5.slotWin'); //pina
+//$('ul#first li#6.slotWin').insertBefore('ul#first li#5.slotWin'); //cofre
+
+//slot2Pos1
+//$('ul#second li#0.slotWin').insertBefore('ul#second li#4.slotWin'); //banana
+//$('ul#second li#1.slotWin').insertBefore('ul#second li#4.slotWin'); //coco
+//$('ul#second li#2.slotWin').insertBefore('ul#second li#4.slotWin'); //seta
+//$('ul#second li#3.slotWin').insertBefore('ul#second li#4.slotWin'); //K, tiro estándar
+//$('ul#second li#4.slotWin').insertBefore('ul#second li#3.slotWin'); //melocoton
+//$('ul#second li#5.slotWin').insertBefore('ul#second li#3.slotWin'); //pina
+//$('ul#second li#6.slotWin').insertBefore('ul#second li#3.slotWin'); //cofre
+
+//slot2Pos2
+//$('ul#second li#0.slotWin').insertBefore('ul#second li#5.slotWin'); //banana
+//$('ul#second li#1.slotWin').insertBefore('ul#second li#5.slotWin'); //coco
+//$('ul#second li#2.slotWin').insertBefore('ul#second li#5.slotWin'); //seta
+//$('ul#second li#3.slotWin').insertBefore('ul#second li#5.slotWin'); //K, tiro estándar
+//$('ul#second li#4.slotWin').insertBefore('ul#second li#4.slotWin'); //melocoton
+//$('ul#second li#5.slotWin').insertBefore('ul#second li#4.slotWin'); //pina
+//$('ul#second li#6.slotWin').insertBefore('ul#second li#4.slotWin'); //cofre
+
+//slot2Pos3
+//$('ul#second li#0.slotWin').insertBefore('ul#second li#6.slotWin');//banana
+//$('ul#second li#1.slotWin').insertBefore('ul#second li#6.slotWin');//coco
+//$('ul#second li#2.slotWin').insertBefore('ul#second li#6.slotWin');//seta
+//$('ul#second li#3.slotWin').insertBefore('ul#second li#6.slotWin');//k
+//$('ul#second li#4.slotWin').insertBefore('ul#second li#5.slotWin');//melocoton
+//$('ul#second li#5.slotWin').insertBefore('ul#second li#5.slotWin');//pina
+//$('ul#second li#6.slotWin').insertBefore('ul#second li#5.slotWin');//cofre
+
+//slot3Pos1
+//$('ul#third li#0.slotWin').insertBefore('ul#third li#4.slotWin'); //banana
+//$('ul#third li#1.slotWin').insertBefore('ul#third li#4.slotWin'); //coco
+//$('ul#third li#2.slotWin').insertBefore('ul#third li#4.slotWin'); //seta
+//$('ul#third li#3.slotWin').insertBefore('ul#third li#4.slotWin'); //K, tiro estándar
+//$('ul#third li#4.slotWin').insertBefore('ul#third li#3.slotWin'); //melocoton
+//$('ul#third li#5.slotWin').insertBefore('ul#third li#3.slotWin'); //pina
+//$('ul#third li#6.slotWin').insertBefore('ul#third li#3.slotWin'); //cofre
+
+//slot3Pos2
+//$('ul#third li#0.slotWin').insertBefore('ul#third li#5.slotWin'); //banana
+//$('ul#third li#1.slotWin').insertBefore('ul#third li#5.slotWin'); //coco
+//$('ul#third li#2.slotWin').insertBefore('ul#third li#5.slotWin'); //seta
+//$('ul#third li#3.slotWin').insertBefore('ul#third li#5.slotWin'); //K, tiro estándar
+//$('ul#third li#4.slotWin').insertBefore('ul#third li#4.slotWin'); //melocoton
+//$('ul#third li#5.slotWin').insertBefore('ul#third li#4.slotWin'); //pina
+//$('ul#third li#6.slotWin').insertBefore('ul#third li#4.slotWin'); //cofre
+
+//slot3Pos3
+//$('ul#third li#0.slotWin').insertBefore('ul#third li#6.slotWin'); //banana
+//$('ul#third li#1.slotWin').insertBefore('ul#third li#6.slotWin'); //coco
+//$('ul#third li#2.slotWin').insertBefore('ul#third li#6.slotWin'); //seta
+//$('ul#third li#3.slotWin').insertBefore('ul#third li#6.slotWin'); //K, tiro estándar
+//$('ul#third li#4.slotWin').insertBefore('ul#third li#5.slotWin'); //melocoton
+//$('ul#third li#5.slotWin').insertBefore('ul#third li#5.slotWin'); //pina
+//$('ul#third li#6.slotWin').insertBefore('ul#third li#5.slotWin'); //cofre
+
+//slot4Pos1
+//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#4.slotWin'); //banana
+//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#4.slotWin'); //coco
+//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#4.slotWin'); //seta
+//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#4.slotWin'); //K, tiro estándar
+//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#3.slotWin'); //melocoton
+//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#3.slotWin'); //pina
+//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#3.slotWin'); //cofre
+
+//slot4Pos2
+//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#5.slotWin'); //banana
+//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#5.slotWin'); //coco
+//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#5.slotWin'); //seta
+//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#5.slotWin'); //K, tiro estándar
+//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#4.slotWin'); //melocoton
+//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#4.slotWin'); //pina
+//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#4.slotWin'); //cofre
+
+//slot4Pos3
+//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#6.slotWin'); //banana
+//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#6.slotWin'); //coco
+//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#6.slotWin'); //seta
+//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#6.slotWin'); //K, tiro estándar
+//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#5.slotWin'); //melocoton
+//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#5.slotWin'); //pina
+//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#5.slotWin'); //cofre
+
+//slot5Pos1
+//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#4.slotWin'); //banana
+//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#4.slotWin'); //coco
+//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#4.slotWin'); //seta
+//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#4.slotWin'); //K, tiro estándar
+//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#3.slotWin'); //melocoton
+//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#3.slotWin'); //pina
+//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#3.slotWin'); //cofre
+
+//slot5Pos2
+//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#5.slotWin'); //banana
+//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#5.slotWin'); //coco
+//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#5.slotWin'); //seta
+//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#5.slotWin'); //K, tiro estándar
+//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#4.slotWin'); //melocoton
+//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#4.slotWin'); //pina
+//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#4.slotWin'); //cofre
+
+//slot5Pos3
+//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#6.slotWin'); //banana
+//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#6.slotWin'); //coco
+//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#6.slotWin'); //seta
+//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#6.slotWin'); //K, tiro estándar
+//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#5.slotWin'); //melocoton
+//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#5.slotWin'); //pina
+//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#5.slotWin'); //cofre
+
+        */
     }
-
-    
-
-    //ELIMINAR EL ELEGIDO PARA EVITAR DUPLICADOS? estudiar comportamiento para corregir la deteccion de los premios
 }
 
 function calcPrizes(){
@@ -261,21 +423,21 @@ function calcPrizes(){
     
     if(slot1Pos1.id == slot2Pos2.id && slot2Pos2.id == slot3Pos3.id && slot3Pos3.id == slot4Pos2.id && slot4Pos2.id == slot5Pos1.id){
         console.log('premio V');
-        //slot1Pos1.className = "slotWin";
+        slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slot";
         slot3Pos1.className = "slot";
         slot4Pos1.className = "slot";
-        //slot5Pos1.className = "slotWin";
+        slot5Pos1.className = "slotWin";
         
         slot1Pos2.className = "slot";
-        //slot2Pos2.className = "slotWin";
+        slot2Pos2.className = "slotWin";
         slot3Pos2.className = "slot";
-        //slot4Pos2.className = "slotWin";
+        slot4Pos2.className = "slotWin";
         slot5Pos2.className = "slot";
 
         slot1Pos3.className = "slot";
         slot2Pos3.className = "slot";
-        //slot3Pos3.className = "slotWin";
+        slot3Pos3.className = "slotWin";
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
         
@@ -285,11 +447,11 @@ function calcPrizes(){
     
     if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
         console.log('premio primera fila');
-        /*slot1Pos1.className = "slotWin";
+        slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slotWin";
         slot3Pos1.className = "slotWin";
         slot4Pos1.className = "slotWin";
-        slot5Pos1.className = "slotWin";*/
+        slot5Pos1.className = "slotWin";
         
         slot1Pos2.className = "slot";
         slot2Pos2.className = "slot";
@@ -313,11 +475,11 @@ function calcPrizes(){
         slot4Pos1.className = "slot";
         slot5Pos1.className = "slot";
         
-        /*slot1Pos2.className = "slotWin";
+        slot1Pos2.className = "slotWin";
         slot2Pos2.className = "slotWin";
         slot3Pos2.className = "slotWin";
         slot4Pos2.className = "slotWin";
-        slot5Pos2.className = "slotWin";*/
+        slot5Pos2.className = "slotWin";
 
         slot1Pos3.className = "slot";
         slot2Pos3.className = "slot";
@@ -343,25 +505,25 @@ function calcPrizes(){
         slot4Pos2.className = "slot";
         slot5Pos2.className = "slot";
 
-        /*slot1Pos3.className = "slotWin";
+        slot1Pos3.className = "slotWin";
         slot2Pos3.className = "slotWin";
         slot3Pos3.className = "slotWin";
         slot4Pos3.className = "slotWin";
-        slot5Pos3.className = "slotWin";*/
+        slot5Pos3.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot3Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot3Pos1.id));
     }
     if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
         console.log('v pequeña');
-       // slot1Pos1.className = "slotWin";
-       // slot2Pos1.className = "slotWin";
+        slot1Pos1.className = "slotWin";
+        slot2Pos1.className = "slotWin";
         slot3Pos1.className = "slot";
-       // slot4Pos1.className = "slotWin";
-       // slot5Pos1.className = "slotWin";
+        slot4Pos1.className = "slotWin";
+        slot5Pos1.className = "slotWin";
         
         slot1Pos2.className = "slot";
         slot2Pos2.className = "slot";
-       // slot3Pos2.className = "slotWin";
+        slot3Pos2.className = "slotWin";
         slot4Pos2.className = "slot";
         slot5Pos2.className = "slot";
 
@@ -378,16 +540,16 @@ function calcPrizes(){
     if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
         console.log('olla rara');
         slot1Pos1.className = "slot";
-       // slot2Pos1.className = "slotWin";
-       // slot3Pos1.className = "slotWin";
-       // slot4Pos1.className = "slotWin";
+        slot2Pos1.className = "slotWin";
+        slot3Pos1.className = "slotWin";
+        slot4Pos1.className = "slotWin";
         slot5Pos1.className = "slot";
         
-       // slot1Pos2.className = "slotWin";
+        slot1Pos2.className = "slotWin";
         slot2Pos2.className = "slot";
         slot3Pos2.className = "slot";
         slot4Pos2.className = "slot";
-      //  slot5Pos2.className = "slotWin";
+        slot5Pos2.className = "slotWin";
 
         slot1Pos3.className = "slot";
         slot2Pos3.className = "slot";
@@ -402,16 +564,16 @@ function calcPrizes(){
     if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
         console.log('zigzag');
         slot1Pos1.className = "slot";
-        //slot2Pos1.className = "slotWin";
+        slot2Pos1.className = "slotWin";
         slot3Pos1.className = "slot";
-        //slot4Pos1.className = "slotWin";
+        slot4Pos1.className = "slotWin";
         slot5Pos1.className = "slot";
         
-        //slot1Pos2.className = "slotWin";
+        slot1Pos2.className = "slotWin";
         slot2Pos2.className = "slot";
-        //slot3Pos2.className = "slotWin";
+        slot3Pos2.className = "slotWin";
         slot4Pos2.className = "slot";
-        //slot5Pos2.className = "slotWin";
+        slot5Pos2.className = "slotWin";
 
         slot1Pos3.className = "slot";
         slot2Pos3.className = "slot";
@@ -431,16 +593,16 @@ function calcPrizes(){
         slot4Pos1.className = "slot";
         slot5Pos1.className = "slot";
         
-       // slot1Pos2.className = "slotWin";
+        slot1Pos2.className = "slotWin";
         slot2Pos2.className = "slot";
         slot3Pos2.className = "slot";
         slot4Pos2.className = "slot";
-       // slot5Pos2.className = "slotWin";
+        slot5Pos2.className = "slotWin";
 
         slot1Pos3.className = "slot";
-       // slot2Pos3.className = "slotWin";
-       // slot3Pos3.className = "slotWin";
-       // slot4Pos3.className = "slotWin";
+        slot2Pos3.className = "slotWin";
+        slot3Pos3.className = "slotWin";
+        slot4Pos3.className = "slotWin";
         slot5Pos3.className = "slot";
 
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
@@ -457,15 +619,15 @@ function calcPrizes(){
         
         slot1Pos2.className = "slot";
         slot2Pos2.className = "slot";
-       // slot3Pos2.className = "slotWin";
+        slot3Pos2.className = "slotWin";
         slot4Pos2.className = "slot";
         slot5Pos2.className = "slot";
 
-       // slot1Pos3.className = "slotWin";
-       // slot2Pos3.className = "slotWin";
+        slot1Pos3.className = "slotWin";
+        slot2Pos3.className = "slotWin";
         slot3Pos3.className = "slot";
-       // slot4Pos3.className = "slotWin";
-       // slot5Pos3.className = "slotWin";
+        slot4Pos3.className = "slotWin";
+        slot5Pos3.className = "slotWin";
 
        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));
@@ -475,21 +637,21 @@ function calcPrizes(){
         console.log('v inversa');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
-       // slot3Pos1.className = "slotWin";
+        slot3Pos1.className = "slotWin";
         slot4Pos1.className = "slot";
         slot5Pos1.className = "slot";
         
         slot1Pos2.className = "slot";
-       // slot2Pos2.className = "slotWin";
+        slot2Pos2.className = "slotWin";
         slot3Pos2.className = "slot";
-       // slot4Pos2.className = "slotWin";
+        slot4Pos2.className = "slotWin";
         slot5Pos2.className = "slot";
 
-       // slot1Pos3.className = "slotWin";
+        slot1Pos3.className = "slotWin";
         slot2Pos3.className = "slot";
         slot3Pos3.className = "slot";
         slot4Pos3.className = "slot";
-       // slot5Pos3.className = "slotWin";
+        slot5Pos3.className = "slotWin";
 
        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));

@@ -33,14 +33,7 @@
     <script type="text/javascript">
             populate();
             $('#btn-example6').click(function() {
-            lightAll();
-            calcPlayerStats();
-            updateText();
-            remove();
-            populate();
-            randomize();
-            calcSpin();
-            
+            startUtils();
             $('#example6 ul').playSpin({
                 onFinish: function(num) {
                     calcPrizes(); 
