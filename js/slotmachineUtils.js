@@ -1147,7 +1147,6 @@ function calcSpin(){
    if(percentPays < 50){
     remove();
         pr = getRandom(0,10);
-        console.log('rand ' +pr);
          switch (pr) {
             case 0:
                 winFirstLine();
@@ -1204,7 +1203,7 @@ function calcPrizes(){
     slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
     slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
     
-    if(slot1Pos1.id == slot2Pos2.id && slot2Pos2.id == slot3Pos3.id && slot3Pos3.id == slot4Pos2.id && slot4Pos2.id == slot5Pos1.id){
+    if(slot1Pos1.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
         console.log('premio V');
         slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slot";
@@ -1224,11 +1223,11 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
         
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.firstChild.currentSrc));
     }
     
-    if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
+    if(slot1Pos1.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
         console.log('premio primera fila');
         slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slotWin";
@@ -1247,10 +1246,10 @@ function calcPrizes(){
         slot3Pos3.className = "slot";
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.firstChild.currentSrc));
     }
-    if(slot1Pos2.id == slot2Pos2.id && slot2Pos2.id == slot3Pos2.id && slot3Pos2.id == slot4Pos2.id && slot4Pos2.id == slot5Pos2.id){
+    if(slot1Pos2.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
         console.log('premio segunda fila');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
@@ -1270,11 +1269,11 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
 
-        player.setWinned = Number(Number(player.getWinned) + Number(slot2Pos1.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot2Pos1.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot2Pos1.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot2Pos1.firstChild.currentSrc));
     }
 
-    if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
+    if(slot1Pos3.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
         console.log('premio 3 fila');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
@@ -1293,10 +1292,10 @@ function calcPrizes(){
         slot3Pos3.className = "slotWin";
         slot4Pos3.className = "slotWin";
         slot5Pos3.className = "slotWin";
-        player.setWinned = Number(Number(player.getWinned) + Number(slot3Pos1.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot3Pos1.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot3Pos1.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot3Pos1.firstChild.currentSrc));
     }
-    if(slot1Pos1.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos1.id){
+    if(slot1Pos1.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
         console.log('-.- pequeña');
         slot1Pos1.className = "slotWin";
         slot2Pos1.className = "slotWin";
@@ -1316,11 +1315,11 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
         
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.firstChild.currentSrc));
     }
 
-    if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos1.id && slot3Pos1.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
+    if(slot1Pos2.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
         console.log('olla rara');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slotWin";
@@ -1340,11 +1339,11 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
 
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.firstChild.currentSrc));
     }
 
-    if(slot1Pos2.id == slot2Pos1.id && slot2Pos1.id == slot3Pos2.id && slot3Pos2.id == slot4Pos1.id && slot4Pos1.id == slot5Pos2.id){
+    if(slot1Pos2.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
         console.log('zigzag');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slotWin";
@@ -1364,11 +1363,11 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slot";
 
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+    //    player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.firstChild.currentSrc));
+    //    player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.firstChild.currentSrc));
     }
 
-    if(slot1Pos2.id == slot2Pos3.id && slot2Pos3.id == slot3Pos3.id && slot3Pos3.id == slot4Pos3.id && slot4Pos3.id == slot5Pos2.id){
+    if(slot1Pos2.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
         console.log('olla abajo');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
@@ -1388,11 +1387,11 @@ function calcPrizes(){
         slot4Pos3.className = "slotWin";
         slot5Pos3.className = "slot";
 
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
-        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+      //  player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.firstChild.currentSrc));
+      //  player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.firstChild.currentSrc));
     }
 
-    if(slot1Pos3.id == slot2Pos3.id && slot2Pos3.id == slot3Pos2.id && slot3Pos2.id == slot4Pos3.id && slot4Pos3.id == slot5Pos3.id){
+    if(slot1Pos3.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
         console.log('zigzag inverso');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
@@ -1412,11 +1411,11 @@ function calcPrizes(){
         slot4Pos3.className = "slotWin";
         slot5Pos3.className = "slotWin";
 
-       player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
-       player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));
+       //player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.firstChild.currentSrc));
+       //player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.firstChild.currentSrc));
     }
 
-    if(slot1Pos3.id == slot2Pos2.id && slot2Pos2.id == slot3Pos1.id && slot3Pos1.id == slot4Pos2.id && slot4Pos2.id == slot5Pos3.id){
+    if(slot1Pos3.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
         console.log('v inversa');
         slot1Pos1.className = "slot";
         slot2Pos1.className = "slot";
@@ -1436,8 +1435,8 @@ function calcPrizes(){
         slot4Pos3.className = "slot";
         slot5Pos3.className = "slotWin";
 
-       player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
-       player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));
+       //player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.firstChild.currentSrc));
+      // player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.firstChild.currentSrc));
     }
 }
 
