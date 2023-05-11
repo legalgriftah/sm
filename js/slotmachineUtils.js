@@ -1,56 +1,232 @@
-function populate (){
-    var ulFirst = document.getElementById("first");
-    var ulSecond = document.getElementById("second");
-    var ulThird = document.getElementById("third");
-    var ulForth = document.getElementById("forth");
-    var ulFifth = document.getElementById("fifth");
+var ulFirst = document.getElementById("first");
+var ulSecond = document.getElementById("second");
+var ulThird = document.getElementById("third");
+var ulForth = document.getElementById("forth");
+var ulFifth = document.getElementById("fifth");
 
+var arrayBase = [];
+arrayBase.push("img/slot/banana.png");
+arrayBase.push("img/slot/coco.png");
+arrayBase.push("img/slot/setas.png");
+arrayBase.push("img/slot/k.png");
+arrayBase.push("img/slot/melocoton.png");
+arrayBase.push("img/slot/pina.png");
+arrayBase.push("img/slot/cofrewild.png");
+
+function populate (){
+    for (var i=0; i<arrayBase.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayBase[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayBase.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayBase[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayBase.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayBase[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayBase.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayBase[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayBase.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayBase[i]);
+        li.appendChild(elem);
+    }
+}
+
+function startUtils(){
+    remove();
+    populate();
+    lightAll();
+    calcPlayerStats();
+    updateText();
+  //  randomizeAll();
+    calcSpin();
+}
+
+function calcPlayerStats (){
+    player.setCredits = player.getCredits -3;
+    player.setSpins = player.getCredits / 3;
+    player.setPlayed = player.getPlayed + 1;
+    player.setPayed = player.getPayed  + 3;
+}
+function remove () {
+    var e = document.querySelector('ul#first');
+    var child = e.lastElementChild; 
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+    var e = document.querySelector('ul#second');
+    var child = e.lastElementChild; 
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+    var e = document.querySelector('ul#third');
+    var child = e.lastElementChild; 
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+    var e = document.querySelector('ul#forth');
+    var child = e.lastElementChild; 
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+    var e = document.querySelector('ul#fifth');
+    var child = e.lastElementChild; 
+    while (child) {
+        e.removeChild(child);
+        child = e.lastElementChild;
+    }
+}
+
+function randomizeAll (){
+    var ul = document.querySelector('ul#first');
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+    var ul = document.querySelector('ul#second');
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+    ul = document.querySelector('ul#third');
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+    ul = document.querySelector('ul#forth');
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+    ul = document.querySelector('ul#fifth');
+    for (var i = 0; i < ul.children.length; i++) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
+}
+
+function randomizePos3(){
+    // A PARTIR DEL ID PUEDO SABER CUANTOS QUEDAN?
+    //hay que hacerlo dinámico...
+    var ul = document.querySelector('ul#fifth');
+    
+}
+
+function updateText (){
+    var paragraph = document.getElementById("credits");
+    var paragraph3 = document.getElementById("spins");
+    var paragraph4 = document.getElementById("jackpot");
+    paragraph4.textContent = 'Jackpot';
+    paragraph.textContent =  player.getCredits;
+    paragraph3.textContent =  player.getSpins;
+    paragraph4.textContent = 'Jackpot ' + 42839803;
+}
+
+function lightAll (){
+    var ul = document.querySelector('ul#first');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slotWin";
+    }
+    var ul = document.querySelector('ul#second');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slotWin";
+    }
+    ul = document.querySelector('ul#third');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slotWin";
+    }
+    ul = document.querySelector('ul#forth');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slotWin";
+    }
+    ul = document.querySelector('ul#fifth');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slotWin";
+    }
+}
+
+function getRandom(min, max) {
+    return  Math.floor(Math.random() * (max - min) + min);
+}
+
+function winFirstLine(){
     var arrayFirst = [];
     var arraySecond = [];
     var arrayThird = [];
     var arrayForth = [];
     var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
 
-    arrayFirst.push("img/slot/banana.png");
-    arrayFirst.push("img/slot/coco.png");
-    arrayFirst.push("img/slot/setas.png");
-    arrayFirst.push("img/slot/k.png");
-    arrayFirst.push("img/slot/melocoton.png");
-    arrayFirst.push("img/slot/pina.png");
-    arrayFirst.push("img/slot/cofrewild.png");
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
 
-    arraySecond.push("img/slot/banana.png");
-    arraySecond.push("img/slot/coco.png");
-    arraySecond.push("img/slot/setas.png");
-    arraySecond.push("img/slot/k.png");
-    arraySecond.push("img/slot/melocoton.png");
-    arraySecond.push("img/slot/pina.png");
-    arraySecond.push("img/slot/cofrewild.png");
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
 
-    arrayThird.push("img/slot/banana.png");
-    arrayThird.push("img/slot/coco.png");
-    arrayThird.push("img/slot/setas.png");
-    arrayThird.push("img/slot/k.png");
-    arrayThird.push("img/slot/melocoton.png");
-    arrayThird.push("img/slot/pina.png");
-    arrayThird.push("img/slot/cofrewild.png");
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
 
-    arrayForth.push("img/slot/banana.png");
-    arrayForth.push("img/slot/coco.png");
-    arrayForth.push("img/slot/setas.png");
-    arrayForth.push("img/slot/k.png");
-    arrayForth.push("img/slot/melocoton.png");
-    arrayForth.push("img/slot/pina.png");
-    arrayForth.push("img/slot/cofrewild.png");
-
-    arrayFifth.push("img/slot/banana.png");
-    arrayFifth.push("img/slot/coco.png");
-    arrayFifth.push("img/slot/setas.png");
-    arrayFifth.push("img/slot/k.png");
-    arrayFifth.push("img/slot/melocoton.png");
-    arrayFifth.push("img/slot/pina.png");
-    arrayFifth.push("img/slot/cofrewild.png");
-
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
     for (var i=0; i<arrayFirst.length; i++){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
@@ -98,195 +274,915 @@ function populate (){
     }
 }
 
-function startUtils(){
-    lightAll();
-    calcPlayerStats();
-    updateText();
-  //  randomize();
-    calcSpin();
-}
-
-function calcPlayerStats (){
-    player.setCredits = player.getCredits -3;
-    player.setSpins = player.getCredits / 3;
-    player.setPlayed = player.getPlayed + 1;
-    player.setPayed = player.getPayed  + 3;
-}
-function remove () {
-    var e = document.querySelector('ul#first');
-    var child = e.lastElementChild; 
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    var e = document.querySelector('ul#second');
-    var child = e.lastElementChild; 
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    var e = document.querySelector('ul#third');
-    var child = e.lastElementChild; 
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    var e = document.querySelector('ul#forth');
-    var child = e.lastElementChild; 
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-    var e = document.querySelector('ul#fifth');
-    var child = e.lastElementChild; 
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
-    }
-}
-
-function randomize (){
-    var ul = document.querySelector('ul#first');
-    for (var i = ul.children.length; i >= 0; i--) {
-        ul.appendChild(ul.children[Math.random() * i | 0]);
-    }
-    var ul = document.querySelector('ul#second');
-    for (var i = ul.children.length; i >= 0; i--) {
-        ul.appendChild(ul.children[Math.random() * i | 0]);
-    }
-    ul = document.querySelector('ul#third');
-    for (var i = ul.children.length; i >= 0; i--) {
-        ul.appendChild(ul.children[Math.random() * i | 0]);
-    }
-    ul = document.querySelector('ul#forth');
-    for (var i = ul.children.length; i >= 0; i--) {
-        ul.appendChild(ul.children[Math.random() * i | 0]);
-    }
-    ul = document.querySelector('ul#fifth');
-    for (var i = ul.children.length; i >= 0; i--) {
-        ul.appendChild(ul.children[Math.random() * i | 0]);
-    }
-}
-
-function updateText (){
-    var paragraph = document.getElementById("credits");
-    var paragraph3 = document.getElementById("spins");
-    var paragraph4 = document.getElementById("jackpot");
-    paragraph4.textContent = 'Jackpot';
-    paragraph.textContent =  player.getCredits;
-    paragraph3.textContent =  player.getSpins;
-    paragraph4.textContent = 'Jackpot ' + 42839803;
-}
-
-function lightAll (){
-    var ul = document.querySelector('ul#first');
-    for (var i = ul.children.length; i >= 1; i--) {
-        ul.getElementsByTagName("li")[i-1].className = "slotWin";
-    }
-    var ul = document.querySelector('ul#second');
-    for (var i = ul.children.length; i >= 1; i--) {
-        ul.getElementsByTagName("li")[i-1].className = "slotWin";
-    }
-    ul = document.querySelector('ul#third');
-    for (var i = ul.children.length; i >= 1; i--) {
-        ul.getElementsByTagName("li")[i-1].className = "slotWin";
-    }
-    ul = document.querySelector('ul#forth');
-    for (var i = ul.children.length; i >= 1; i--) {
-        ul.getElementsByTagName("li")[i-1].className = "slotWin";
-    }
-    ul = document.querySelector('ul#fifth');
-    for (var i = ul.children.length; i >= 1; i--) {
-        ul.getElementsByTagName("li")[i-1].className = "slotWin";
-    }
-}
-
-function getRandom(min, max) {
-    return  Math.floor(Math.random() * (max - min) + min);
-}
-
-function calcSpin(){
+function winSecondLine(){
+    //segunda linea
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
     
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winThirdLine(){
+    //tercera linea
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+function winVInverso(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+function winV(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winM(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winOlla(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winZigZag(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winOllaAbajo(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+
+function winZigZagInverso(){
+    var arrayFirst = [];
+    var arraySecond = [];
+    var arrayThird = [];
+    var arrayForth = [];
+    var arrayFifth = [];
+    pr = getRandom(0,6);
+    value = arrayBase[getRandom(0,arrayBase.length-1)];
+    remove();
+    
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(value);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arraySecond.push(value);
+    arraySecond.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(value);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayThird.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayForth.push(value);
+    arrayForth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(value);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    arrayFifth.push(arrayBase[getRandom(0,arrayBase.length-1)]);
+    
+    for (var i=0; i<arrayFirst.length; i++){
+        var li=document.createElement('li');
+        ulFirst.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFirst[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arraySecond.length; i++){
+        var li=document.createElement('li');
+        ulSecond.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arraySecond[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayThird.length; i++){
+        var li=document.createElement('li');
+        ulThird.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayThird[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayForth.length; i++){
+        var li=document.createElement('li');
+        ulForth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayForth[i]);
+        li.appendChild(elem);
+    }
+    for (var i=0; i<arrayFifth.length; i++){
+        var li=document.createElement('li');
+        ulFifth.appendChild(li);
+        li.innerHTML=li.innerHTML;
+        li.id=[i];
+        var elem = document.createElement("img");
+        elem.setAttribute("src", arrayFifth[i]);
+        li.appendChild(elem);
+    }
+}
+function calcSpin(){
     var percentPays = ((player.getWinned / player.payed) * 100);
     console.log((player.getWinned / player.payed) * 100);
-    if(percentPays < 50){      
-        
+   if(percentPays < 50){     
         pr = getRandom(0,10);
-         /*switch (pr) {
+        console.log('rand ' +pr);
+         switch (pr) {
             case 0:
-                //primera linea
-                $('ul#first li#0.slotWin').insertBefore('ul#first li#4.slotWin');
-                $('ul#second li#0.slotWin').insertBefore('ul#second li#4.slotWin');
-                $('ul#third li#0.slotWin').insertBefore('ul#third li#4.slotWin');
-                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#4.slotWin');
-                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#4.slotWin');
-              break;
+                winFirstLine();
+                break;
             case 1:
-                //segunda linea
-                $('ul#first li#0.slotWin').insertBefore('ul#first li#5.slotWin');
-                $('ul#second li#0.slotWin').insertBefore('ul#second li#5.slotWin');
-                $('ul#third li#0.slotWin').insertBefore('ul#third li#5.slotWin');
-                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#5.slotWin');
-                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#5.slotWin');
+                winSecondLine();
                 break;
             case 2:
-                //tercera linea
-                $('ul#first li#0.slotWin').insertBefore('ul#first li#6.slotWin');
-                $('ul#second li#0.slotWin').insertBefore('ul#second li#6.slotWin');
-                $('ul#third li#0.slotWin').insertBefore('ul#third li#6.slotWin');
-                $('ul#forth li#0.slotWin').insertBefore('ul#forth li#6.slotWin');
-                $('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#6.slotWin');
-              break;
+                winThirdLine();
+                break;
             case 3:
-                //V
-                $('ul#first li#1.slotWin').insertBefore('ul#first li#4.slotWin'); //coco
-                $('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#4.slotWin'); //coco
-                $('ul#second li#1.slotWin').insertBefore('ul#second li#5.slotWin'); //coco
-                $('ul#forth li#1.slotWin').insertBefore('ul#forth li#5.slotWin'); //coco
-                $('ul#third li#1.slotWin').insertBefore('ul#third li#6.slotWin'); //coco
+               winV();
               break;
             case 4:
-                //-.-
-                //$('ul#first li#5.slotWin').insertBefore('ul#first li#3.slotWin'); //pina
-                //$('ul#second li#5.slotWin').insertBefore('ul#second li#3.slotWin'); //pina
-                //$('ul#third li#5.slotWin').insertBefore('ul#third li#4.slotWin'); //pina
-                //$('ul#forth li#5.slotWin').insertBefore('ul#forth li#3.slotWin'); //pina
-                //$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#3.slotWin'); //pina
+                winM();
               break;
             case 5:
-                //olla rara
-                //$('ul#first li#2.slotWin').insertBefore('ul#first li#5.slotWin'); //seta
-                //$('ul#second li#2.slotWin').insertBefore('ul#second li#4.slotWin'); //seta
-                //$('ul#third li#2.slotWin').insertBefore('ul#third li#4.slotWin'); //seta
-                //$('ul#forth li#2.slotWin').insertBefore('ul#forth li#4.slotWin'); //seta
-                //$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#5.slotWin'); //seta
+                winOlla();
               break;
             case 6:
-                //zigzag
-                //$('ul#first li#3.slotWin').insertBefore('ul#first li#5.slotWin'); //K, tiro estándar
-                //$('ul#second li#3.slotWin').insertBefore('ul#second li#4.slotWin'); //K, tiro estándar
-                //$('ul#third li#3.slotWin').insertBefore('ul#third li#5.slotWin'); //K, tiro estándar
-                //$('ul#forth li#3.slotWin').insertBefore('ul#forth li#4.slotWin'); //K, tiro estándar
-                //$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#5.slotWin'); //K, tiro estándar
+                winZigZag();
               break;
             case 7:
-                //olla abajo
-                //$('ul#first li#5.slotWin').insertBefore('ul#first li#4.slotWin'); //pina
-                //$('ul#second li#5.slotWin').insertBefore('ul#second li#5.slotWin');//pina
-                //$('ul#third li#5.slotWin').insertBefore('ul#third li#5.slotWin'); //pina
-                //$('ul#forth li#5.slotWin').insertBefore('ul#forth li#5.slotWin'); //pina
-                //$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#4.slotWin'); //pina
+                winOllaAbajo();
               break;
             case 8:
-                //zigzag inverso
+                winZigZagInverso();
                 break;
             case 9:
-                //v inversa
+                winVInverso();
               break;
          }
-         test = "ul#first li#6.slotWin" ;
-         test2 = 'ul#first li#3.slotWin';
-         $(test).insertBefore(test2);
+         
 //slot1Pos1
 //$('ul#first li#0.slotWin').insertBefore('ul#first li#4.slotWin'); //banana
 //$('ul#first li#1.slotWin').insertBefore('ul#first li#4.slotWin'); //coco
@@ -422,7 +1318,9 @@ function calcSpin(){
 //$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#5.slotWin'); //pina
 //$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#5.slotWin'); //cofre
 
-        */
+        
+    }else{
+        randomizeAll();
     }
 }
 
