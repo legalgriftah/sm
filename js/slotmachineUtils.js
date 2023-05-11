@@ -14,6 +14,7 @@ arrayBase.push("img/slot/pina.png");
 arrayBase.push("img/slot/cofrewild.png");
 
 function populate (){
+    remove();
     for (var i=0; i<arrayBase.length; i++){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
@@ -62,12 +63,10 @@ function populate (){
 }
 
 function startUtils(){
-    remove();
     populate();
     lightAll();
     calcPlayerStats();
     updateText();
-  //  randomizeAll();
     calcSpin();
 }
 
@@ -185,7 +184,6 @@ function winFirstLine(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -283,7 +281,7 @@ function winSecondLine(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -381,7 +379,7 @@ function winThirdLine(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -477,7 +475,7 @@ function winVInverso(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -573,7 +571,7 @@ function winV(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -670,7 +668,7 @@ function winM(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -766,7 +764,7 @@ function winOlla(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -862,7 +860,7 @@ function winZigZag(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -959,7 +957,7 @@ function winOllaAbajo(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
+    
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -1056,7 +1054,6 @@ function winZigZagInverso(){
     var arrayFifth = [];
     pr = getRandom(0,6);
     value = arrayBase[getRandom(0,arrayBase.length-1)];
-    remove();
     
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
     arrayFirst.push(arrayBase[getRandom(0,arrayBase.length-1)]);
@@ -1147,7 +1144,8 @@ function winZigZagInverso(){
 function calcSpin(){
     var percentPays = ((player.getWinned / player.payed) * 100);
     console.log((player.getWinned / player.payed) * 100);
-   if(percentPays < 50){     
+   if(percentPays < 50){
+    remove();
         pr = getRandom(0,10);
         console.log('rand ' +pr);
          switch (pr) {
@@ -1181,144 +1179,7 @@ function calcSpin(){
             case 9:
                 winVInverso();
               break;
-         }
-         
-//slot1Pos1
-//$('ul#first li#0.slotWin').insertBefore('ul#first li#4.slotWin'); //banana
-//$('ul#first li#1.slotWin').insertBefore('ul#first li#4.slotWin'); //coco
-//$('ul#first li#2.slotWin').insertBefore('ul#first li#4.slotWin'); //seta
-//$('ul#first li#3.slotWin').insertBefore('ul#first li#4.slotWin'); //K, tiro estándar
-//$('ul#first li#4.slotWin').insertBefore('ul#first li#3.slotWin'); //melocoton
-//$('ul#first li#5.slotWin').insertBefore('ul#first li#3.slotWin'); //pina
-//$('ul#first li#6.slotWin').insertBefore('ul#first li#3.slotWin'); //cofre
-
-//slot1Pos2
-//$('ul#first li#0.slotWin').insertBefore('ul#first li#5.slotWin'); //banana
-//$('ul#first li#1.slotWin').insertBefore('ul#first li#5.slotWin'); //coco
-//$('ul#first li#2.slotWin').insertBefore('ul#first li#5.slotWin'); //seta
-//$('ul#first li#3.slotWin').insertBefore('ul#first li#5.slotWin'); //K, tiro estándar
-//$('ul#first li#4.slotWin').insertBefore('ul#first li#4.slotWin'); //melocoton
-//$('ul#first li#5.slotWin').insertBefore('ul#first li#4.slotWin'); //pina
-//$('ul#first li#6.slotWin').insertBefore('ul#first li#4.slotWin'); //cofre
-
-//slot1Pos3
-//$('ul#first li#0.slotWin').insertBefore('ul#first li#6.slotWin'); //banana
-//$('ul#first li#1.slotWin').insertBefore('ul#first li#6.slotWin'); //coco
-//$('ul#first li#2.slotWin').insertBefore('ul#first li#6.slotWin'); //seta
-//$('ul#first li#3.slotWin').insertBefore('ul#first li#6.slotWin'); //K, tiro estándar
-//$('ul#first li#4.slotWin').insertBefore('ul#first li#5.slotWin'); //melocoton
-//$('ul#first li#5.slotWin').insertBefore('ul#first li#5.slotWin'); //pina
-//$('ul#first li#6.slotWin').insertBefore('ul#first li#5.slotWin'); //cofre
-
-//slot2Pos1
-//$('ul#second li#0.slotWin').insertBefore('ul#second li#4.slotWin'); //banana
-//$('ul#second li#1.slotWin').insertBefore('ul#second li#4.slotWin'); //coco
-//$('ul#second li#2.slotWin').insertBefore('ul#second li#4.slotWin'); //seta
-//$('ul#second li#3.slotWin').insertBefore('ul#second li#4.slotWin'); //K, tiro estándar
-//$('ul#second li#4.slotWin').insertBefore('ul#second li#3.slotWin'); //melocoton
-//$('ul#second li#5.slotWin').insertBefore('ul#second li#3.slotWin'); //pina
-//$('ul#second li#6.slotWin').insertBefore('ul#second li#3.slotWin'); //cofre
-
-//slot2Pos2
-//$('ul#second li#0.slotWin').insertBefore('ul#second li#5.slotWin'); //banana
-//$('ul#second li#1.slotWin').insertBefore('ul#second li#5.slotWin'); //coco
-//$('ul#second li#2.slotWin').insertBefore('ul#second li#5.slotWin'); //seta
-//$('ul#second li#3.slotWin').insertBefore('ul#second li#5.slotWin'); //K, tiro estándar
-//$('ul#second li#4.slotWin').insertBefore('ul#second li#4.slotWin'); //melocoton
-//$('ul#second li#5.slotWin').insertBefore('ul#second li#4.slotWin'); //pina
-//$('ul#second li#6.slotWin').insertBefore('ul#second li#4.slotWin'); //cofre
-
-//slot2Pos3
-//$('ul#second li#0.slotWin').insertBefore('ul#second li#6.slotWin');//banana
-//$('ul#second li#1.slotWin').insertBefore('ul#second li#6.slotWin');//coco
-//$('ul#second li#2.slotWin').insertBefore('ul#second li#6.slotWin');//seta
-//$('ul#second li#3.slotWin').insertBefore('ul#second li#6.slotWin');//k
-//$('ul#second li#4.slotWin').insertBefore('ul#second li#5.slotWin');//melocoton
-//$('ul#second li#5.slotWin').insertBefore('ul#second li#5.slotWin');//pina
-//$('ul#second li#6.slotWin').insertBefore('ul#second li#5.slotWin');//cofre
-
-//slot3Pos1
-//$('ul#third li#0.slotWin').insertBefore('ul#third li#4.slotWin'); //banana
-//$('ul#third li#1.slotWin').insertBefore('ul#third li#4.slotWin'); //coco
-//$('ul#third li#2.slotWin').insertBefore('ul#third li#4.slotWin'); //seta
-//$('ul#third li#3.slotWin').insertBefore('ul#third li#4.slotWin'); //K, tiro estándar
-//$('ul#third li#4.slotWin').insertBefore('ul#third li#3.slotWin'); //melocoton
-//$('ul#third li#5.slotWin').insertBefore('ul#third li#3.slotWin'); //pina
-//$('ul#third li#6.slotWin').insertBefore('ul#third li#3.slotWin'); //cofre
-
-//slot3Pos2
-//$('ul#third li#0.slotWin').insertBefore('ul#third li#5.slotWin'); //banana
-//$('ul#third li#1.slotWin').insertBefore('ul#third li#5.slotWin'); //coco
-//$('ul#third li#2.slotWin').insertBefore('ul#third li#5.slotWin'); //seta
-//$('ul#third li#3.slotWin').insertBefore('ul#third li#5.slotWin'); //K, tiro estándar
-//$('ul#third li#4.slotWin').insertBefore('ul#third li#4.slotWin'); //melocoton
-//$('ul#third li#5.slotWin').insertBefore('ul#third li#4.slotWin'); //pina
-//$('ul#third li#6.slotWin').insertBefore('ul#third li#4.slotWin'); //cofre
-
-//slot3Pos3
-//$('ul#third li#0.slotWin').insertBefore('ul#third li#6.slotWin'); //banana
-//$('ul#third li#1.slotWin').insertBefore('ul#third li#6.slotWin'); //coco
-//$('ul#third li#2.slotWin').insertBefore('ul#third li#6.slotWin'); //seta
-//$('ul#third li#3.slotWin').insertBefore('ul#third li#6.slotWin'); //K, tiro estándar
-//$('ul#third li#4.slotWin').insertBefore('ul#third li#5.slotWin'); //melocoton
-//$('ul#third li#5.slotWin').insertBefore('ul#third li#5.slotWin'); //pina
-//$('ul#third li#6.slotWin').insertBefore('ul#third li#5.slotWin'); //cofre
-
-//slot4Pos1
-//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#4.slotWin'); //banana
-//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#4.slotWin'); //coco
-//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#4.slotWin'); //seta
-//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#4.slotWin'); //K, tiro estándar
-//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#3.slotWin'); //melocoton
-//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#3.slotWin'); //pina
-//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#3.slotWin'); //cofre
-
-//slot4Pos2
-//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#5.slotWin'); //banana
-//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#5.slotWin'); //coco
-//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#5.slotWin'); //seta
-//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#5.slotWin'); //K, tiro estándar
-//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#4.slotWin'); //melocoton
-//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#4.slotWin'); //pina
-//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#4.slotWin'); //cofre
-
-//slot4Pos3
-//$('ul#forth li#0.slotWin').insertBefore('ul#forth li#6.slotWin'); //banana
-//$('ul#forth li#1.slotWin').insertBefore('ul#forth li#6.slotWin'); //coco
-//$('ul#forth li#2.slotWin').insertBefore('ul#forth li#6.slotWin'); //seta
-//$('ul#forth li#3.slotWin').insertBefore('ul#forth li#6.slotWin'); //K, tiro estándar
-//$('ul#forth li#4.slotWin').insertBefore('ul#forth li#5.slotWin'); //melocoton
-//$('ul#forth li#5.slotWin').insertBefore('ul#forth li#5.slotWin'); //pina
-//$('ul#forth li#6.slotWin').insertBefore('ul#forth li#5.slotWin'); //cofre
-
-//slot5Pos1
-//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#4.slotWin'); //banana
-//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#4.slotWin'); //coco
-//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#4.slotWin'); //seta
-//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#4.slotWin'); //K, tiro estándar
-//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#3.slotWin'); //melocoton
-//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#3.slotWin'); //pina
-//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#3.slotWin'); //cofre
-
-//slot5Pos2
-//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#5.slotWin'); //banana
-//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#5.slotWin'); //coco
-//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#5.slotWin'); //seta
-//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#5.slotWin'); //K, tiro estándar
-//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#4.slotWin'); //melocoton
-//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#4.slotWin'); //pina
-//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#4.slotWin'); //cofre
-
-//slot5Pos3
-//$('ul#fifth li#0.slotWin').insertBefore('ul#fifth li#6.slotWin'); //banana
-//$('ul#fifth li#1.slotWin').insertBefore('ul#fifth li#6.slotWin'); //coco
-//$('ul#fifth li#2.slotWin').insertBefore('ul#fifth li#6.slotWin'); //seta
-//$('ul#fifth li#3.slotWin').insertBefore('ul#fifth li#6.slotWin'); //K, tiro estándar
-//$('ul#fifth li#4.slotWin').insertBefore('ul#fifth li#5.slotWin'); //melocoton
-//$('ul#fifth li#5.slotWin').insertBefore('ul#fifth li#5.slotWin'); //pina
-//$('ul#fifth li#6.slotWin').insertBefore('ul#fifth li#5.slotWin'); //cofre
-
-        
+         }        
     }else{
         randomizeAll();
     }
