@@ -59,8 +59,8 @@ function populate (){
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
+        
     }
-    document.getElementById('example6').style.height = Number(document.getElementById('1').clientHeight*3) + "px";
 }
 
 function startUtils(){

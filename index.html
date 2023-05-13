@@ -19,16 +19,7 @@
     </div> 
     
 
-   <button type="button" id="btn-example6" style="position:fixed;
-   width:60px;
-   height:60px;
-   bottom:40px;
-   right:40px;
-   background-color:#0C9;
-   color:#FFF;
-   border-radius:50px;
-   text-align:center;
-   box-shadow: 2px 2px 3px #999;" >
+   <button type="button" id="btn-example6">
         
     </button>
     <p id="credits"></p>
@@ -41,9 +32,9 @@
     <script src="js/slotmachine.min.js"></script>
     <script src="js/slotmachineUtils.js"></script>
     <script type="text/javascript">
-        
             populate();
             $('#btn-example6').click(function() {
+            document.getElementById('example6').style.height = Number(document.getElementById('1').clientHeight*3) + "px";
             startUtils();
             $('#example6 ul').playSpin({
                 onFinish: function(num) {
@@ -52,6 +43,25 @@
             });
             
     });
+    var imgs = document.images,
+    len = imgs.length,
+    counter = 0;
+
+[].forEach.call( imgs, function( img ) {
+    if(img.complete)
+      incrementCounter();
+    else
+      img.addEventListener( 'load', incrementCounter, false );
+} );
+
+function incrementCounter() {
+    counter++;
+    if ( counter === len ) {
+        console.log( 'All images loaded!' );
+        document.getElementById('example6').style.height = Number(document.getElementById('1').clientHeight*3) + "px";
+    }
+}
+    
     </script>
 </body>
 </html>
