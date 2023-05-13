@@ -47,6 +47,9 @@ img {
   }
 .slotwrapper {
     width: 80vw;
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
 }
 .scores{
     max-width: 100%; 
