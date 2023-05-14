@@ -76,6 +76,7 @@ function calcPlayerStats (){
     player.setSpins = player.getCredits / 3;
     player.setPlayed = player.getPlayed + 1;
     player.setPayed = player.getPayed  + 3;
+    player.setJackpot = player.getJackpot + 1;
 }
 function remove () {
     var e = document.querySelector('ul#first');
@@ -141,13 +142,13 @@ function randomizePos3(){
 }
 
 function updateText (){
-    var paragraph = document.getElementById("credits");
-    var paragraph3 = document.getElementById("spins");
-    var paragraph4 = document.getElementById("jackpot");
-    paragraph4.textContent = 'Jackpot';
+    var paragraph = document.getElementById("credit");
     paragraph.textContent =  player.getCredits;
-    paragraph3.textContent =  player.getSpins;
-    paragraph4.textContent = 'Jackpot ' + 42839803;
+
+    var paragraph4 = document.getElementById("jackpot");
+    paragraph4.textContent = player.getJackpot;
+    
+    var paragraph3 = document.getElementById("win");
 }
 
 function lightAll (){
@@ -1338,6 +1339,7 @@ const player = {
     winned : 0,
     payed: 0,
     played: 0,
+    jackpot: 1000,
     set setCredits(credits) {
         this.credits = credits;
     },
@@ -1353,6 +1355,9 @@ const player = {
     set setPlayed(played){
         this.played = played;
     },
+    set setJackpot(jackpot){
+        this.jackpot = jackpot;
+    },
     get getCredits() {
         return this.credits;
     },
@@ -1367,5 +1372,8 @@ const player = {
     },
     get getPlayed(){
         return this.played;
+    },
+    get getJackpot(){
+        return this.jackpot;
     }
 };
