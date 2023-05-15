@@ -175,6 +175,29 @@ function lightAll (){
     }
 }
 
+function lightAllOff (){
+    var ul = document.querySelector('ul#first');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slot";
+    }
+    var ul = document.querySelector('ul#second');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slot";
+    }
+    ul = document.querySelector('ul#third');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slot";
+    }
+    ul = document.querySelector('ul#forth');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slot";
+    }
+    ul = document.querySelector('ul#fifth');
+    for (var i = ul.children.length; i >= 1; i--) {
+        ul.getElementsByTagName("li")[i-1].className = "slot";
+    }
+}
+
 function getRandom(min, max) {
     return  Math.floor(Math.random() * (max - min) + min);
 }
@@ -1188,6 +1211,7 @@ function calcSpin(){
 }
 
 function calcPrizes(){
+    lightAllOff();
     slot1Pos1 = document.querySelector('ul#first').getElementsByTagName("li")[3];
     slot2Pos1 = document.querySelector('ul#second').getElementsByTagName("li")[3];
     slot3Pos1 = document.querySelector('ul#third').getElementsByTagName("li")[3];
@@ -1205,25 +1229,6 @@ function calcPrizes(){
     slot3Pos3 = document.querySelector('ul#third').getElementsByTagName("li")[5];
     slot4Pos3 = document.querySelector('ul#forth').getElementsByTagName("li")[5];
     slot5Pos3 = document.querySelector('ul#fifth').getElementsByTagName("li")[5];
-    //
-
-    slot1Pos1.className = "slot";
-    slot2Pos1.className = "slot";
-    slot3Pos1.className = "slot";
-    slot4Pos1.className = "slot";
-    slot5Pos1.className = "slot";
-    
-    slot1Pos2.className = "slot";
-    slot2Pos2.className = "slot";
-    slot3Pos2.className = "slot";
-    slot4Pos2.className = "slot";
-    slot5Pos2.className = "slot";
-
-    slot1Pos3.className = "slot";
-    slot2Pos3.className = "slot";
-    slot3Pos3.className = "slot";
-    slot4Pos3.className = "slot";
-    slot5Pos3.className = "slot";
     
     if(slot1Pos1.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
         console.log('premio V');
