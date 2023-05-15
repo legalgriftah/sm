@@ -19,7 +19,7 @@ function populate (){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
@@ -28,7 +28,7 @@ function populate (){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
@@ -37,7 +37,7 @@ function populate (){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
@@ -46,7 +46,7 @@ function populate (){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
@@ -55,7 +55,7 @@ function populate (){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayBase[i]);
         li.appendChild(elem);
@@ -149,6 +149,7 @@ function updateText (){
     paragraph4.textContent = player.getJackpot;
     
     var paragraph3 = document.getElementById("win");
+    paragraph3.textContent = 0;
 }
 
 function lightAll (){
@@ -231,7 +232,7 @@ function winFirstLine(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -240,7 +241,7 @@ function winFirstLine(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -249,7 +250,7 @@ function winFirstLine(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -258,7 +259,7 @@ function winFirstLine(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -267,7 +268,7 @@ function winFirstLine(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -329,7 +330,7 @@ function winSecondLine(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -338,7 +339,7 @@ function winSecondLine(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -347,7 +348,7 @@ function winSecondLine(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -356,7 +357,7 @@ function winSecondLine(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -365,7 +366,7 @@ function winSecondLine(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -427,7 +428,7 @@ function winThirdLine(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -436,7 +437,7 @@ function winThirdLine(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -445,7 +446,7 @@ function winThirdLine(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -454,7 +455,7 @@ function winThirdLine(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -463,7 +464,7 @@ function winThirdLine(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -523,7 +524,7 @@ function winVInverso(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -532,7 +533,7 @@ function winVInverso(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -541,7 +542,7 @@ function winVInverso(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -550,7 +551,7 @@ function winVInverso(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -559,7 +560,7 @@ function winVInverso(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -619,7 +620,7 @@ function winV(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -628,7 +629,7 @@ function winV(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -637,7 +638,7 @@ function winV(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -646,7 +647,7 @@ function winV(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -655,7 +656,7 @@ function winV(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -715,7 +716,7 @@ function winM(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -724,7 +725,7 @@ function winM(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -733,7 +734,7 @@ function winM(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -742,7 +743,7 @@ function winM(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -751,7 +752,7 @@ function winM(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -811,7 +812,7 @@ function winOlla(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -820,7 +821,7 @@ function winOlla(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -829,7 +830,7 @@ function winOlla(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -838,7 +839,7 @@ function winOlla(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -847,7 +848,7 @@ function winOlla(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -908,7 +909,7 @@ function winZigZag(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -917,7 +918,7 @@ function winZigZag(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -926,7 +927,7 @@ function winZigZag(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -935,7 +936,7 @@ function winZigZag(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -944,7 +945,7 @@ function winZigZag(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -1005,7 +1006,7 @@ function winOllaAbajo(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -1014,7 +1015,7 @@ function winOllaAbajo(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -1023,7 +1024,7 @@ function winOllaAbajo(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -1032,7 +1033,7 @@ function winOllaAbajo(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -1041,7 +1042,7 @@ function winOllaAbajo(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -1101,7 +1102,7 @@ function winZigZagInverso(){
         var li=document.createElement('li');
         ulFirst.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFirst[i]);
         li.appendChild(elem);
@@ -1110,7 +1111,7 @@ function winZigZagInverso(){
         var li=document.createElement('li');
         ulSecond.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arraySecond[i]);
         li.appendChild(elem);
@@ -1119,7 +1120,7 @@ function winZigZagInverso(){
         var li=document.createElement('li');
         ulThird.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayThird[i]);
         li.appendChild(elem);
@@ -1128,7 +1129,7 @@ function winZigZagInverso(){
         var li=document.createElement('li');
         ulForth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayForth[i]);
         li.appendChild(elem);
@@ -1137,7 +1138,7 @@ function winZigZagInverso(){
         var li=document.createElement('li');
         ulFifth.appendChild(li);
         li.innerHTML=li.innerHTML;
-        li.id=[i];
+        li.id=[i*i];
         var elem = document.createElement("img");
         elem.setAttribute("src", arrayFifth[i]);
         li.appendChild(elem);
@@ -1146,7 +1147,7 @@ function winZigZagInverso(){
 function calcSpin(){
     var percentPays = ((player.getWinned / player.payed) * 100);
     console.log((player.getWinned / player.payed) * 100);
-   if(percentPays < 50){
+   if(percentPays < 98){
     remove();
         pr = getRandom(0,10);
          switch (pr) {
@@ -1233,6 +1234,8 @@ function calcPrizes(){
         slot3Pos3.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos1.id);
     }
     
     if(slot1Pos1.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
@@ -1244,6 +1247,8 @@ function calcPrizes(){
         slot5Pos1.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos1.id);
     }
     if(slot1Pos2.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
         console.log('premio segunda fila');
@@ -1254,6 +1259,8 @@ function calcPrizes(){
         slot5Pos2.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot2Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot2Pos1.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot2Pos1.id);
     }
 
     if(slot1Pos3.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
@@ -1265,6 +1272,8 @@ function calcPrizes(){
         slot5Pos3.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot3Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot3Pos1.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot3Pos1.id);
     }
     if(slot1Pos1.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos1.firstChild.currentSrc){
         console.log('-.- pequeña');
@@ -1275,6 +1284,8 @@ function calcPrizes(){
         slot3Pos2.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos1.id);
     }
 
     if(slot1Pos2.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
@@ -1286,6 +1297,8 @@ function calcPrizes(){
         slot5Pos2.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos2.id);
     }
 
     if(slot1Pos2.firstChild.currentSrc == slot2Pos1.firstChild.currentSrc && slot2Pos1.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos1.firstChild.currentSrc && slot4Pos1.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
@@ -1297,6 +1310,8 @@ function calcPrizes(){
         slot5Pos2.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos2.id);
     }
 
     if(slot1Pos2.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos3.firstChild.currentSrc && slot3Pos3.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos2.firstChild.currentSrc){
@@ -1308,6 +1323,8 @@ function calcPrizes(){
         slot4Pos3.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos2.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos2.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos2.id);
     }
 
     if(slot1Pos3.firstChild.currentSrc == slot2Pos3.firstChild.currentSrc && slot2Pos3.firstChild.currentSrc == slot3Pos2.firstChild.currentSrc && slot3Pos2.firstChild.currentSrc == slot4Pos3.firstChild.currentSrc && slot4Pos3.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
@@ -1319,6 +1336,8 @@ function calcPrizes(){
         slot5Pos3.className = "slotWin";
         player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));
+        var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos3.id);
     }
 
     if(slot1Pos3.firstChild.currentSrc == slot2Pos2.firstChild.currentSrc && slot2Pos2.firstChild.currentSrc == slot3Pos1.firstChild.currentSrc && slot3Pos1.firstChild.currentSrc == slot4Pos2.firstChild.currentSrc && slot4Pos2.firstChild.currentSrc == slot5Pos3.firstChild.currentSrc){
@@ -1330,6 +1349,8 @@ function calcPrizes(){
         slot5Pos3.className = "slotWin";
        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos3.id));
        player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos3.id));
+       var paragraph3 = document.getElementById("win");
+        paragraph3.textContent = Number(slot1Pos3.id);
     }
 }
 
@@ -1340,6 +1361,7 @@ const player = {
     payed: 0,
     played: 0,
     jackpot: 1000,
+    roundWinned: 0,
     set setCredits(credits) {
         this.credits = credits;
     },
@@ -1358,6 +1380,9 @@ const player = {
     set setJackpot(jackpot){
         this.jackpot = jackpot;
     },
+    set setRoundWinned(roundWinned){
+        this.roundWinned = roundWinned;
+    },
     get getCredits() {
         return this.credits;
     },
@@ -1375,5 +1400,8 @@ const player = {
     },
     get getJackpot(){
         return this.jackpot;
+    },
+    get getRoundWinned(){
+        return this.roundWinned;
     }
 };
