@@ -44,7 +44,12 @@ img {
     position: relative;
     overflow: hidden;
     top: 0px;
-    margin:0px auto 0px auto;
+    margin:10px auto 10px auto;
+    background-color: rgb(56, 13, 33);
+    height: 609px;
+    border-style: solid;
+    border-width: 0.2vw;
+    border-color: rgb(211, 160, 71);
 }
 .scores{
     max-width: 100%; 
@@ -57,7 +62,6 @@ img {
 .spinImg{
     max-width: 100%; 
     top: 0;
-
     z-index: 0;
     background-repeat:no-repeat;
     background-size:contain;
@@ -65,11 +69,9 @@ img {
 }
 .btn-success{
     z-index: 2;
-
 }
 .slotwrapper ul {
     list-style: none;
-
     float: left;
 }
 
@@ -88,16 +90,16 @@ li{
     margin:0px auto 0px auto;
 }
 #btn-example6{
-position:fixed;
-   width:10vw;
-   height:60px;
+   width:fit-content;
    top:0px;
    right:0px;
-   background-color:#0C9;
+   background-image: linear-gradient(rgb(56, 13, 33), yellow, #732C16);
    color:#FFF;
-   border-radius:50px;
    text-align:center;
    box-shadow: 2px 2px 3px #999;
+    border-style: solid;
+    border-width: 0.2vw;
+    border-color: rgb(211, 160, 71);
 }
 
 #jackpotText, #creditText, #winText{
@@ -119,6 +121,7 @@ position:fixed;
     font-size:3.5vw;
     color: #D3A047;
     border-width: 0.2vw;
+    background-image: linear-gradient(rgb(56, 13, 33), #732C16);
 }
 
 .imgCenter {
@@ -141,9 +144,17 @@ position:fixed;
     width: 50%;
   }
   
-  /* Clear floats after the columns */
   .row:after {
     content: "";
     display: table;
     clear: both;
+  }
+
+  #spinText{
+    text-align:center;
+    font-size:3.5vw;
+    color: #D3A047;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-image: linear-gradient(rgb(56, 13, 33), #732C16);
   }
