@@ -1204,6 +1204,8 @@ function calcSpin(){
             case 9:
                 winVInverso();
               break;
+            default:
+                randomizeAll();
          }        
     }else{
         randomizeAll();
