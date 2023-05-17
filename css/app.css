@@ -5,7 +5,7 @@ body{
     background-repeat: no-repeat;
 }
 
-#genDiv{
+.genDiv{
     width: 80vw;
     position: relative;
     margin: auto auto auto auto;
