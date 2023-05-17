@@ -1168,8 +1168,7 @@ function winZigZagInverso(){
 }
 function calcSpin(){
     var percentPays = ((player.getWinned / player.payed) * 100);
-    console.log((player.getWinned / player.payed) * 100);
-   if(percentPays < 98){
+   if(percentPays < 95){
     remove();
         pr = getRandom(0,10);
          switch (pr) {
@@ -1239,7 +1238,10 @@ function calcPrizes(){
         slot2Pos2.className = "slotWin";
         slot4Pos2.className = "slotWin";
         slot3Pos3.className = "slotWin";
-        player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
+        var percentPays = ((player.getWinned / player.payed) * 100);
+        if(percentPays < 95){
+            player.setWinned = Number(Number(player.getWinned) + Number(slot1Pos1.id));
+        }
         player.setCredits = Number(Number(player.getCredits) +  Number(slot1Pos1.id));
         totalPrize = totalPrize + Number(slot1Pos1.id);
     }
