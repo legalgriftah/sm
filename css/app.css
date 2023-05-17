@@ -1,7 +1,14 @@
 body{
+    
     background-image: url('../img/testBackground.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+#genDiv{
+    width: 80vw;
+    position: relative;
+    margin: auto auto auto auto;
 }
 .credits{
 
